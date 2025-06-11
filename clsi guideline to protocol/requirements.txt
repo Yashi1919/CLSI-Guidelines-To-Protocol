@@ -1,6 +1,0 @@
-python-dotenv
-crewai
-langchain-google-genai
-PyMuPDF
-pdf2image
-pytesseract
