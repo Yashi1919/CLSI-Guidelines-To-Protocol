@@ -1,0 +1,1346 @@
+```latex
+\documentclass{article}
+\usepackage{booktabs,natbib,bibentry}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{array} % For better table column control
+\usepackage{longtable} % For tables spanning multiple pages if needed
+
+\nobibliography*
+
+\title{Content Extraction and Simplification of CLSI EP39Ed1E Guidelines: \\ A Hierarchical Approach to Selecting Surrogate Samples}
+\author{CLSI Content Committee}
+\date{06.04.2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+This document provides a simplified overview of the CLSI guideline EP39, 1st Edition, focusing on the hierarchical approach to selecting and using surrogate samples for evaluating laboratory tests. The guideline aims to standardize terminology and provide clear recommendations for when and how to use materials other than fresh, unaltered patient samples in test development, validation, and verification.
+
+\subsection{Scope}
+
+This guideline defines what a "surrogate sample" is and outlines a structured way to choose, prepare, and use these samples. It covers:
+\begin{itemize}
+    \item What surrogate samples are made of.
+    \item How to technically prepare them.
+    \item Criteria for selecting the right one.
+    \item How to document and plan their use.
+    \item How they can be used in different types of test performance studies.
+\end{itemize}
+The information is intended for those who develop laboratory tests (IVD device developers), laboratory professionals, and regulatory bodies. This guideline does not cover how to design performance studies in detail, as that is covered in other CLSI documents \cite{CLSIEP39Ed1E}.
+
+\subsection{Background}
+
+Evaluating laboratory tests properly requires using patient samples. However, getting enough suitable patient samples can be difficult for various reasons. When patient samples are not available or sufficient, surrogate samples become important. Using them helps make better use of biological materials, improves testing efficiency, and supports the development of tests for new markers.
+
+Reasons why patient samples might be difficult to use include:
+\begin{itemize}
+    \item **Logistics:** Difficulties in collecting, transporting, or storing samples.
+    \item **Insufficient Volume:** Not enough sample volume from a single patient.
+    \item **Limited Numbers:** Not enough samples with specific characteristics, like very high or very low levels of the substance being measured (analyte), or samples at critical medical decision levels.
+    \item **Technical Issues:** Samples that don't have the necessary properties for a specific study.
+    \item **Instability:** Samples that degrade quickly.
+    \item **Lack of Blank Samples:** Difficulty finding samples that are completely negative for the substance being measured.
+\end{itemize}
+
+Reasons why collecting enough patient samples might be hard:
+\begin{itemize}
+    \item **Low Disease Prevalence:** The condition being tested for is rare.
+    \item **Limited Patient Population:** The test is for a small group of patients.
+    \item **Compromised Patient Health:** Patients are too ill to provide samples.
+    \item **Invasive Collection:** The sample requires a procedure that is risky or uncomfortable for the patient (e.g., spinal fluid).
+    \item **Ethical Concerns:** Issues related to collecting samples from certain populations or for certain purposes.
+\end{itemize}
+
+Surrogate samples have been used for a long time, but there hasn't been a clear, standard way to define or use them. Different terms like "contrived," "altered," "processed," "diluted," "supplemented," and "simulated" have been used interchangeably. This lack of standard language makes it harder to develop clear scientific strategies. This guideline provides a standard definition and recommendations for using surrogate samples in a justified way for test development and evaluation \cite{CLSIEP39Ed1E}.
+
+\subsection{Standard Precautions}
+
+It's important to remember that all patient and laboratory samples should be treated as potentially infectious. Standard precautions, which combine universal precautions and body substance isolation, should always be followed. These guidelines cover preventing the spread of all known infectious agents. For detailed information on laboratory safety and managing exposures, refer to CLSI document M29 \cite{CLSIM29}.
+
+\subsection{Terminology}
+
+To ensure clear communication globally, this guideline uses specific terms consistently. Table 1 explains how certain terms are used.
+
+\begin{table}[h!]
+\centering
+\caption{Common Terms or Phrases With Intended Interpretations \cite{CLSIEP39Ed1E}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{9cm}}
+\toprule
+\textbf{Term or Phrase} & \textbf{Intended Interpretation} \\
+\midrule
+“Needs to” or “must” & Explains an action directly related to fulfilling a regulatory and/or accreditation requirement or is indicative of a necessary step to ensure patient safety or proper fulfillment of a procedure \\
+“Require” & Represents a statement that directly reflects a regulatory, accreditation, performance, product, or organizational requirement or a requirement or specification identified in an approved documentary standard \\
+“Should” & Describes a recommendation provided in laboratory literature, a statement of good laboratory practice, or a suggestion for how to meet a requirement \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Definitions}
+
+Here are key terms used in this guideline:
+\begin{itemize}
+    \item **Altered biological matrix:** A biological sample that has been changed from its original state by processes not usually part of routine sample collection (e.g., heating, adding chemicals, centrifugation to clarify).
+    \item **Analyte:** The specific substance or component being measured or detected in a test (e.g., glucose in blood, protein in urine).
+    \item **Analytical measuring interval (AMI):** The range of analyte values that a test can measure accurately without needing special steps like dilution before testing.
+    \item **Analytical specificity:** How well a test measures only the intended analyte without being affected by other substances.
+    \item **Artificial analyte:** A substance created or made to act like the natural analyte found in human samples, used for spiking surrogate samples (e.g., synthesized chemicals, recombinant proteins, lab-grown cells).
+    \item **Artificial matrix:** A substance created or made to act like a natural biological sample matrix (e.g., collection fluids, salt solutions, albumin dissolved in buffer).
+    \item **Biological analyte:** The natural analyte taken from a biological sample, used for spiking (e.g., analyte-rich patient samples, purified proteins, DNA from tissue).
+    \item **Biological matrix:** All parts of a sample except the analyte itself (e.g., serum, urine, tissue).
+    \item **Biological reference interval:** The range of values for an analyte typically found in a healthy population.
+    \item **Commutability:** How similarly a material (like a control or surrogate sample) behaves compared to real patient samples when tested by different methods. If a material is commutable, the relationship between results from two methods for that material is similar to the relationship for patient samples.
+    \item **Interference (analytical):** When a substance in the sample causes a test result to be falsely high or low.
+    \item **In-use stability:** How long a product works correctly after its container is opened and it's being used on the instrument.
+    \item **Limit of blank (LoB):** The highest result expected when testing a sample that contains no analyte. It helps distinguish between a true low positive and background noise.
+    \item **Linearity:** The ability of a test to give results that are directly proportional to the amount of analyte in the sample over a certain range.
+    \item **Lower limit of detection (LLoD):** The lowest amount of analyte that a test can reliably detect (usually detected in 95\% of samples tested).
+    \item **Lower limit of quantitation (LLoQ):** The lowest amount of analyte that a test can measure accurately with acceptable precision and correctness.
+    \item **Matrix (of a material system):** All components of a sample except the analyte.
+    \item **Matrix comparison:** Evaluating if different types of sample matrixes give equivalent results.
+    \item **Matrix effect:** The influence of something in the sample matrix (not the analyte itself) on the test result.
+    \item **Measurand:** The specific quantity or property being measured (e.g., mass of glucose).
+    \item **Method comparison:** Comparing the results of a new test method against an existing one to see how well they agree.
+    \item **Patient sample:** A biological sample taken from a person, either used directly or after standard processing steps like centrifugation or adding preservatives.
+    \item **Precision (of measurement):** How close repeated measurements are to each other when testing the same sample under specified conditions.
+    \item **Qualitative tests:** Tests that give a yes/no or positive/negative result.
+    \item **Repeatability (measurement):** Precision when measurements are done under the exact same conditions (same operator, instrument, location, short time).
+    \item **Reproducibility (measurement):** Precision when measurements are done under different conditions (different operators, instruments, locations, over a longer time).
+    \item **Sample:** A portion taken from a larger system (like a patient specimen) for testing. In this guideline, a sample might be changed from the original specimen.
+    \item **Shelf-life:** How long a product remains stable and works correctly when stored in its original packaging as recommended by the manufacturer.
+    \item **Specimen:** A discrete amount of body fluid, tissue, etc., taken from a person for testing.
+    \item **Surrogate sample:** A material or combination of materials used instead of a sample from a single human subject to study a specific characteristic. This includes pooled patient samples, samples spiked with analyte, materials made to mimic body fluids, or combinations of artificial analyte and matrix.
+    \item **Unaltered biological matrix:** A biological sample matrix that has not been changed from the normal collection process (e.g., serum, plasma, urine, tissue).
+\end{itemize}
+
+\subsubsection{Abbreviations and Acronyms}
+
+\begin{itemize}
+    \item AMI: Analytical Measuring Interval
+    \item $\beta$hCG: $\beta$-human chorionic gonadotropin
+    \item C5: The concentration where a qualitative test is positive 5\% of the time.
+    \item C95: The concentration where a qualitative test is positive 95\% of the time.
+    \item CMV: Cytomegalovirus
+    \item CSF: Cerebrospinal fluid
+    \item DNA: Deoxyribonucleic acid
+    \item EDTA: Ethylenediaminetetraacetic acid
+    \item ELISA: Enzyme-linked immunosorbent assay
+    \item FFPE: Formalin-fixed, paraffin-embedded
+    \item IVD: In vitro diagnostic
+    \item LLMI: Lower limit of the measuring interval
+    \item LLoD: Lower limit of detection
+    \item LLoQ: Lower limit of quantitation
+    \item LoB: Limit of blank
+    \item MDL: Medical decision level
+    \item NPA: Negative percent agreement
+    \item NSCLC: Non–small cell lung cancer
+    \item pH: Negative logarithm of hydrogen ion concentration
+    \item PPA: Positive percent agreement
+    \item QC: Quality control
+    \item RNA: Ribonucleic acid
+    \item ULMI: Upper limit of the measuring interval
+\end{itemize}
+
+\section{Path of Workflow}
+
+Deciding to use a surrogate sample involves choosing the best substitute for the specific study. Figure 1 outlines the steps involved, starting with considering whether patient samples are sufficient and leading to the selection and planning for surrogate samples.
+
+\begin{figure}[h!]
+    \centering
+    % This is a simplified representation of the flowchart described in the text.
+    % Creating a full flowchart in LaTeX is complex and beyond the scope of a simple text extraction.
+    % The text description and the hierarchy tables provide the core information.
+    % A textual description of the process flow is provided below.
+    \caption{Simplified Process for Using Surrogate Samples \cite{CLSIEP39Ed1E}}
+    % Placeholder for a graphical flowchart if one were to be included.
+    % \includegraphics[width=0.8\textwidth]{flowchart_placeholder.png}
+\end{figure}
+
+\textbf{Process Flow Description:}
+\begin{itemize}
+    \item **Start:** Determine study or use objectives.
+    \item Identify the needed sample characteristics (analyte, matrix, volume, concentration) that should mimic patient samples.
+    \item Ask: Are fresh or archived patient samples available and adequate for the specified use?
+    \item **If Yes:** Use patient samples. End.
+    \item **If No:** Consider using surrogate sample(s).
+    \item Assess the analyte or measurand: Is patient sample analyte available and adequate?
+    \item **If Yes (Analyte Available):** Assess the matrix: Is patient sample matrix available and adequate?
+    \item **If Yes (Matrix Available):** Patient sample analyte with patient sample matrix is used (this path should ideally lead back to "Use patient samples" or indicate a specific scenario where both are available but still considered "surrogate" like pooling). *Correction based on Figure 1:* If patient sample analyte is available and adequate, the next question is about the matrix. If the matrix is *also* available and adequate, then patient sample analyte with patient sample matrix is used. If the patient sample matrix is *not* available and adequate, then patient sample analyte is used, and the most appropriate surrogate matrix is identified.
+    \item **If No (Analyte Not Available):** Assess the matrix: Is patient sample matrix available and adequate?
+    \item **If Yes (Matrix Available):** Patient sample matrix is used, and the most appropriate surrogate analyte is identified.
+    \item **If No (Matrix Not Available):** The most appropriate surrogate analyte and surrogate matrix are identified.
+    \item Based on the analyte and matrix assessment, surrogate sample and composition are selected.
+    \item A surrogate sample plan is developed.
+    \item Sample stability, storage, and fitness for use are considered for qualifying the surrogate sample.
+    \item The surrogate sample plan is implemented.
+    \item **End.**
+\end{itemize}
+
+This process emphasizes starting with patient samples and moving to surrogate options only when necessary, following a structured approach to select the best substitute components.
+
+\section{Samples}
+
+This section describes the types of samples used in laboratory testing, focusing on patient samples and the definition and categories of surrogate samples.
+
+\subsection{Patient Sample}
+
+A patient sample originates from the human body and contains the analyte within its natural biological matrix. For example, in a blood sodium test, sodium is the analyte, and everything else in the blood is the matrix. Standard processing steps like centrifugation, adding preservatives (like EDTA or heparin), or extraction techniques do not change a sample's designation as a patient sample.
+
+Good laboratory practice relies on tests developed using patient samples that are as similar as possible to the samples routinely collected. Blood and urine are common examples that are relatively easy to obtain. Laboratories should be familiar with common sample types, optimal collection-to-testing times, and typical reference ranges for the analyte. Patient samples are always the preferred type for human clinical studies when available and suitable \cite{CLSIEP39Ed1E}.
+
+\subsection{Surrogate Sample}
+
+A surrogate sample is defined as any material or combination of materials used as a substitute for a sample taken from a single human subject to study a specific characteristic. This definition includes materials that have been modified beyond standard processing.
+
+Examples of materials considered surrogate samples:
+\begin{itemize}
+    \item Pooled patient samples (combining samples from multiple individuals).
+    \item Materials where the analyte of interest has been added (spiked).
+    \item Materials created to mimic the properties of a specific body fluid or tissue.
+    \item Materials made from a combination of a simulated analyte and a matrix designed to resemble a body fluid or tissue.
+    \item More complex combinations of manufactured analyte and matrix.
+\end{itemize}
+
+Standard processing like physical separation (centrifugation), collection into a standard tube, or formalin fixation does *not* make a sample a surrogate sample.
+
+Some materials used in proficiency testing might fit the definition of a surrogate sample. Table 2 lists the categories of surrogate samples.
+
+\begin{table}[h!]
+\centering
+\caption{Surrogate Sample Categories \cite{CLSIEP39Ed1E}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{10cm}}
+\toprule
+\textbf{Category} & \textbf{Description} \\
+\midrule
+Supplemented & An individual sample matrix (biological or artificial) that has been spiked with the target analyte. \\
+Pooled & Individual patient samples that have been combined or diluted. They may or may not be spiked with the target analyte. \\
+Simulated & Materials of biological origin that have been altered, or artificial materials created to have properties similar to body fluids, tissues, or their components. These may or may not be spiked with the target analyte. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Surrogate Sample Hierarchical Approach}
+
+After deciding that surrogate samples are needed, developers should use a structured approach to choose the most appropriate type. This hierarchy aims to minimize the differences between the surrogate sample and a real patient sample.
+
+\subsection{Decision to Use Surrogate Samples}
+
+Laboratories and manufacturers prefer using patient samples (fresh, archived, or frozen) for test evaluations. However, as discussed, patient samples may not always be available or sufficient. Figure 2 (conceptually similar to the start of Figure 1) illustrates this initial decision point: if patient samples are available and adequate, use them; if not, consider surrogate samples.
+
+\begin{figure}[h!]
+    \centering
+    % Simplified representation of Figure 2
+    \caption{Simplified Decision Process for Using a Surrogate Sample \cite{CLSIEP39Ed1E}}
+    % Textual description provided below.
+\end{figure}
+
+\textbf{Decision Process Description:}
+\begin{itemize}
+    \item Ask: Are fresh or archived patient samples available and adequate for the specified use?
+    \item **If Yes:** Use patient samples. End.
+    \item **If No:** Use of surrogate sample(s) is considered. Surrogate sample and composition are selected. End.
+\end{itemize}
+
+It is generally better to use surrogate samples to *add to* testing done with patient samples, rather than using only surrogate samples.
+
+\subsection{Surrogate Sample Hierarchy}
+
+Once the decision is made to use surrogate samples, a hierarchy helps determine the best type and combination of analyte and matrix. Table 3 shows this hierarchy, placing samples closest to unaltered patient samples at the top. This table is a starting point, and the best choice also depends on the specific study objectives and general principles outlined in the guideline. The rationale for the choice should be documented in a surrogate sample plan (see Chapter 5) \cite{CLSIEP39Ed1E}.
+
+\begin{table}[h!]
+\centering
+\caption{Surrogate Sample Hierarchy \cite{CLSIEP39Ed1E}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{2cm}}
+\toprule
+& \multicolumn{4}{c}{\textbf{Matrix}} & \\
+\cmidrule(lr){2-5}
+& \multicolumn{2}{c}{Biological} & \multicolumn{2}{c}{Artificial} & \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+\textbf{Analyte} & Unaltered Individual & Unaltered Pool & Altered Individual & Altered Pool & Artificial \\
+\midrule
+Unspiked & \textcolor{darkgreen}{A1} Patient sample & \textcolor{darkgreen}{A2} Pooled & \textcolor{orange}{C1} Simulated matrix & \textcolor{orange}{C2} Simulated matrix & \textcolor{red}{G} Simulated matrix \\
+Spiked Biological & \textcolor{darkgreen}{B1} Supplemented & \textcolor{darkgreen}{B2} Pooled & \textcolor{orange}{D1} Simulated matrix & \textcolor{orange}{D2} Simulated matrix & \textcolor{red}{H} Simulated matrix \\
+Spiked Artificial & \textcolor{orange}{E1} Simulated analyte & \textcolor{orange}{E2} Simulated analyte & \textcolor{red}{F1} Simulated analyte/matrix & \textcolor{red}{F2} Simulated analyte/matrix & \textcolor{red}{I} Simulated analyte/matrix \\
+\bottomrule
+\multicolumn{6}{p{15cm}}{\textbf{Legend Colors:}} \\
+\multicolumn{6}{p{15cm}}{\textcolor{darkgreen}{\rule{1em}{1em}} Most desirable options (closest to patient samples).} \\
+\multicolumn{6}{p{15cm}}{\textcolor{orange}{\rule{1em}{1em}} Less desirable, but potentially suitable options. Requires justification.} \\
+\multicolumn{6}{p{15cm}}{\textcolor{red}{\rule{1em}{1em}} Least desirable options. Requires strong justification and careful validation.} \\
+\multicolumn{6}{p{15cm}}{* The hierarchy generally flows downwards and across from left to right within rows. A well-documented rationale is needed to move down or across the hierarchy.}
+\end{tabular}
+\end{table}
+
+\subsection{Surrogate Sample Composition}
+
+When creating a surrogate sample, the developer must choose the right combination of analyte and matrix.
+
+\subsubsection{Analyte Options and Considerations}
+
+Ideally, the analyte in a surrogate sample should be biological and as similar as possible to the analyte in patient samples.
+\begin{itemize}
+    \item **Preference:** Biological analyte from an individual patient sample is preferred over pooled patient samples.
+    \item **Alternatives:** If biological analytes from patient samples aren't available, other biological analytes (e.g., purified from organisms, cell cultures) can be used. If no biological analyte is available, artificial analytes that mimic the target analyte are an option.
+    \item **Artificial Analytes:** Should behave like the natural analyte, considering factors like stability and how well the test detects them across the measuring range.
+    \item **Chemical Analytes:** For chemical molecules, the same approach as for biological analytes applies. High-purity material is preferred.
+    \item **Recombinant Proteins:** May be used if natural analyte is rare or unstable, but potential structural differences should be considered.
+    \item **Nucleic Acids:** Smaller DNA/RNA segments or oligonucleotides might be suitable depending on the test.
+    \item **Traceability:** Consider traceability to standards if required for the study. Standard reference materials can be used as analyte sources.
+    \item **Interferents:** Pooling or purifying analyte sources can help reduce the risk of introducing substances that might interfere with the test.
+    \item **Synthetic Analogs:** Sometimes used, especially for endogenous compounds, often spiked into pooled patient samples. Useful for preparing samples with known concentrations for validation (e.g., spike-and-recovery) or method comparison.
+\end{itemize}
+
+\textbf{Practical Example (Analyte Selection):}
+Imagine you need to create samples with known concentrations of a specific human hormone for a linearity study. The hormone is rare in high concentrations in individual patient samples.
+\begin{itemize}
+    \item **Preferred:** Find a patient sample with a naturally high concentration and use that as the source (Biological Analyte from Individual Patient Sample).
+    \item **Next Best:** Pool several patient samples with detectable levels to create a higher concentration pool (Biological Analyte from Pooled Patient Samples).
+    \item **Alternative:** Use a commercially available recombinant version of the human hormone (Artificial Analyte). You would need to verify that the recombinant hormone behaves similarly to the natural hormone in your test.
+\end{itemize}
+
+\subsubsection{Matrix Options and Considerations}
+
+The matrix should resemble the environment of the analyte in a patient sample.
+\begin{itemize}
+    \item **Preference:** Unaltered biological matrixes from individual or pooled patient samples are preferred.
+    \item **Alternatives:** If patient sample matrixes are unavailable or inadequate, altered biological matrixes are the next option, followed by artificial matrixes.
+    \item **Pooled Matrixes:** Pooling patient samples for matrixes like serum, plasma, or urine can reduce variability and provide sufficient volume. When pooling, use the same matrix type (e.g., serum with serum) to minimize matrix effects. If diluting, minimize the diluent volume to reduce its impact on the matrix composition.
+    \item **Altered Matrixes:** Biological matrixes modified to remove or reduce the analyte (e.g., charcoal-stripped serum). Be aware that such processes might change other important components of the matrix.
+    \item **Artificial Matrixes:** Created to mimic patient sample matrixes. Consider stability, potential matrix effects, and how well the test detects the measurand in this matrix. Matrix comparison studies (e.g., using dilutional linearity, spike-and-recovery, standard addition) can help determine if an artificial matrix is suitable. Appendix B provides examples of artificial matrix compositions.
+\end{itemize}
+
+\textbf{Practical Example (Matrix Selection):}
+You need a large volume of negative serum to dilute positive patient samples for a linearity study. Finding enough individual negative serum samples is difficult.
+\begin{itemize}
+    \item **Preferred:** Pool negative serum samples from multiple patients (Unaltered Biological Matrix - Pool). Ensure the pool is verified as negative.
+    \item **Alternative 1:** Use charcoal-stripped serum (Altered Biological Matrix). You would need to confirm that the stripping process didn't introduce substances that interfere with your test or remove components necessary for proper test function.
+    \item **Alternative 2:** Create an artificial serum-like matrix using components like albumin and salts dissolved in buffer (Artificial Matrix). You would need to perform studies to show that your test performs similarly in this artificial matrix compared to real serum.
+\end{itemize}
+
+\subsubsection{Selection of Surrogate Sample Composition}
+
+Choosing the right combination of analyte and matrix involves weighing several factors. The priority between analyte and matrix depends on what is most critical to mimic in the patient sample for the specific study. Figure 3 illustrates this decision process.
+
+\begin{figure}[h!]
+    \centering
+    % Simplified representation of Figure 3
+    \caption{Simplified Process for Selecting the Composition of a Surrogate Sample \cite{CLSIEP39Ed1E}}
+    % Textual description provided below.
+\end{figure}
+
+\textbf{Composition Selection Process Description:}
+\begin{itemize}
+    \item Start: Surrogate sample and composition are selected.
+    \item Ask: Is patient sample analyte available and adequate?
+    \item **If Yes (Analyte Available):** Ask: Is patient sample matrix available and adequate?
+    \item **If Yes (Matrix Available):** Patient sample analyte with patient sample matrix is used.
+    \item **If No (Matrix Not Available):** Patient sample analyte is used, and the most appropriate surrogate matrix is identified.
+    \item **If No (Analyte Not Available):** Ask: Is patient sample matrix available and adequate?
+    \item **If Yes (Matrix Available):** Patient sample matrix is used, and the most appropriate surrogate analyte is identified.
+    \item **If No (Matrix Not Available):** The most appropriate surrogate analyte and surrogate matrix are identified.
+\end{itemize}
+
+The relative importance of using a biological analyte versus a biological matrix depends on the test type (e.g., molecular, immunoassay), the patient sample type, and the specific performance study. The developer must justify their choices and assess the risks of using substitutes. The goal is to minimize interference and mimic biological variability where possible. The specific goals of the performance study should always guide the selection \cite{CLSIEP39Ed1E}. Risk management principles, as described in international standards and CLSI documents like EP23 \cite{CLSIEP23}, can help in deciding which surrogate sample formulation is acceptable.
+
+\section{Surrogate Sample Plan}
+
+Before using surrogate samples, developers must define the study objectives and determine if surrogate samples are appropriate and what type is needed. A surrogate sample plan is a crucial document that outlines this process and provides the scientific justification.
+
+Using risk management principles (from international standards and CLSI documents like EP18 \cite{CLSIEP18} and EP23 \cite{CLSIEP23}), the developer creates a plan based on study objectives, patient sample availability, the principles in this guideline, and the surrogate sample hierarchy. This plan guides the selection of the type and amount of surrogate samples and serves as documentation for the decisions and rationale. Figure 4 illustrates the process for developing this plan.
+
+\begin{figure}[h!]
+    \centering
+    % Simplified representation of Figure 4
+    \caption{Simplified Process for Developing a Surrogate Sample Plan \cite{CLSIEP39Ed1E}}
+    % Textual description provided below.
+\end{figure}
+
+\textbf{Surrogate Sample Plan Development Process Description:}
+\begin{itemize}
+    \item Start: Study or use objectives are determined.
+    \item Needed sample is identified (analyte, matrix, volume, concentration mimicking patient sample).
+    \item Sample gaps are identified (where patient samples are insufficient).
+    \item Surrogate samples are selected (using the hierarchy and principles).
+    \item Surrogate sample plan is developed.
+    \item Sample stability, storage, and fitness for use are considered for qualifying the surrogate sample.
+    \item Surrogate sample plan is implemented.
+    \item End.
+\end{itemize}
+
+The importance of using the preferred analyte and/or matrix varies by study type. For example, in a method comparison, both might be equally important. For a carryover study, high analyte concentration is key, but the physical properties (like viscosity) of the matrix are also critical to simulate patient sample handling. For analytical specificity studies of endogenous analytes, using a matrix without the target analyte is a priority.
+
+Developers must assess if surrogate samples could introduce bias compared to patient samples. Using surrogate samples as the *only* samples for all study types might lead to incorrect conclusions about test performance. They should generally *supplement* patient samples. Sometimes, an alternative approach might be better than using a surrogate sample. For instance, a small study with patient samples could be supported by a larger study using surrogate samples.
+
+\subsection{Identifying Needed Samples}
+
+After designing the study, the developer must figure out how many patient samples are available, the volume needed per test (including repeats), and the required characteristics (negative, positive, specific genotypes, concentrations at MDLs or AMI extremes).
+
+Factors making adequate sample volume difficult:
+\begin{itemize}
+    \item Sample type (e.g., CSF, tears).
+    \item Patient population (e.g., pediatric).
+    \item Number of replicates needed (e.g., for reproducibility).
+\end{itemize}
+
+For qualitative tests, determine the number of positive and negative samples needed, especially around the LLoD or cutoff \cite{CLSIEP12, CLSIMM03}. For quantitative tests, calculate the number needed to cover the AMI, LLoD, LLoQ, and MDLs \cite{CLSIEP06, CLSIEP17, CLSIEP09, CLSIMM06}. Paired samples (e.g., serum and plasma from the same patient) might be needed for matrix comparisons. After this assessment, identify the gaps where surrogate samples are necessary.
+
+\subsection{Developing a Surrogate Sample Plan}
+
+The plan documents the selection and justification for using surrogate samples. It can be simpler if there's already a lot of knowledge about using surrogate samples for that specific test or study type.
+
+The plan should include:
+\begin{itemize}
+    \item Description of the study type or use (e.g., linearity, precision, QC).
+    \item Study objectives.
+    \item Samples needed and where patient samples are insufficient.
+    \item Rationale for using surrogate samples (e.g., scientific need, sample rarity).
+    \item How the hierarchical approach (Table 3, Chapter 8) was used for selection.
+    \item Relevant patient sample characteristics.
+    \item How much the surrogate sample differs from a patient sample.
+    \item Evaluation of how well the surrogate sample mimics the biological variability of patient samples.
+    \item Consideration of sample processing steps (like extraction) and how surrogate samples will mimic this.
+    \item Evaluation of surrogate sample stability (see Subchapter 6.4).
+    \item Which aspects of analyte/matrix combinations must be unchanged and which can be altered, and why. Justify the choices and document risks.
+    \item How surrogate samples will be qualified (e.g., confirming concentration, stability, comparability) (see Subchapter 7.1).
+    \item If scientific rationale isn't enough, how comparability between surrogate and patient samples will be demonstrated (see Subchapter 7.2 and CLSI document EP35 \cite{CLSIEP35}). Commutability studies (CLSI document EP14 \cite{CLSIEP14}) might be relevant for quantitative tests.
+    \item Reference to existing CLSI guidelines for specific study types (e.g., EP05 \cite{CLSIEP05} for precision, EP06 \cite{CLSIEP06} for linearity, EP07 \cite{CLSIEP07} for specificity, EP17 \cite{CLSIEP17} for detection capability, EP34 \cite{CLSIEP34} for extended range, EP35 \cite{CLSIEP35} for sample suitability, C37 \cite{CLSIC37} for serum pools).
+    \item Use the hierarchy (Table 3) to select the appropriate type.
+\end{itemize}
+
+\textbf{Practical Example (Surrogate Sample Plan Element):}
+For a linearity study of a rare protein marker, you need samples spanning a wide concentration range. Patient samples with very high concentrations are extremely rare.
+\begin{itemize}
+    \item **Study Type/Objective:** Linearity study to verify the analytical measuring interval (AMI) of the protein assay.
+    \item **Samples Needed/Gaps:** Need 5-7 concentration levels across the AMI. Patient samples available cover only the low-to-mid range. High-concentration samples are missing.
+    \item **Rationale for Surrogate:** Patient samples with high concentrations are too rare to obtain in sufficient volume for a full linearity panel.
+    \item **Hierarchy Approach:** Will use a high-concentration pooled patient sample (A2) or a patient sample spiked with biological analyte (B1 or B2) as the top level, then dilute with a blank patient sample pool (A2) to create the intermediate levels.
+    \item **Composition Justification:** Using biological analyte (from patient samples) and biological matrix (pooled patient samples) is preferred to best mimic patient samples. Spiking is necessary to reach the required high concentration.
+    \item **Qualification:** The high-concentration spiked pool will be value-assigned using a reference method. Stability of the diluted samples will be confirmed over the study period. Comparability to patient samples will be assessed by including patient samples within the overlapping concentration range.
+\end{itemize}
+
+\section{Technical Preparation Techniques}
+
+Proper technical preparation is essential for creating reliable surrogate samples.
+
+\subsection{Overview}
+
+Qualified personnel should prepare surrogate samples using calibrated equipment and following standard laboratory practices to avoid errors like cross-contamination or sample loss. Good practices include using personal protective equipment, proper pipetting, mixing, and maintaining a clean workspace. Training is crucial. Using disposable labware can help prevent contamination.
+
+Preparation methods vary (see CLSI document EP06 \cite{CLSIEP06}). The physical properties of the surrogate sample (stability, solubility, pH, viscosity, purity, etc.) are important and should be considered when selecting the analyte and matrix. The order of adding components, mixing technique, speed, temperature, filtration, and storage conditions all impact the final sample quality. For protein samples, mixing technique is particularly important to avoid degradation.
+
+The study objectives (defined in Chapter 5) influence the preparation steps. For example, samples for long-term QC or precision studies need robust stability, including resistance to freeze-thaw cycles.
+
+\subsection{Determining the Analyte}
+
+The analyte in the surrogate sample should ideally be as similar as possible to the analyte in patient samples.
+\begin{itemize}
+    \item **Known Chemical Structure:** For analytes like salts or small drug molecules, using high-purity material increases confidence in preparation accuracy.
+    \item **Recombinant Proteins:** May be used for stability or availability reasons, but potential structural differences from natural proteins should be noted.
+    \item **Nucleic Acids:** Smaller segments or oligonucleotides might be suitable depending on the assay.
+    \item **Test Method Bias:** Different analyte sources (recombinant vs. natural) can cause bias. Consider the specific study (e.g., recombinant might be okay for reproducibility but not detection).
+    \item **High Concentration:** For high concentrations, lab-grown microorganisms or synthetic nucleic acids can be used.
+\end{itemize}
+
+Considerations for specific studies:
+\begin{itemize}
+    \item **Linearity:** Create dilutions across the AMI, often by spiking a high-concentration patient sample into a negative one \cite{CLSIEP06}.
+    \item **Detection Capability:** Use reference materials or samples from biobanks to create panels for LLoD/LLoQ studies.
+    \item **Analytical Specificity:** Create blank samples by removing the analyte from native specimens (e.g., stripping). Be aware this might alter other matrix components \cite{CLSIEP17}.
+\end{itemize}
+
+Defining analyte concentrations can be done by weighing (gravimetric) or measuring volumes (volumetric). If the test involves an extraction step, the extraction medium might serve as the surrogate sample.
+
+When spiking, use a high-concentration stock solution of the analyte. The volume of stock added should be small to minimize changes to the matrix. Screen the matrix for the analyte before spiking. For very sensitive assays, precise volume handling is critical.
+
+If the analyte is unstable (labile), fresh preparations or special storage conditions (e.g., freezing, liquid nitrogen) are needed. Examples include certain proteins or hemoglobin.
+
+The source of the surrogate analyte might introduce interfering substances. Always choose the analyte source carefully based on the specific purpose of the experiment \cite{CLSIEP37}.
+
+\textbf{Practical Example (Analyte Preparation):}
+You need a series of samples with decreasing concentrations of a specific viral RNA for a detection capability study. Patient samples with high viral loads are available, but obtaining a range of low-positive samples is difficult.
+\begin{itemize}
+    \item **Method:** Take a high-titer patient sample (Biological Analyte).
+    \item **Preparation:** Dilute this high-titer sample serially into a verified negative patient sample matrix (Unaltered Biological Matrix - Pool or Individual).
+    \item **Consideration:** Ensure the negative matrix is truly negative and doesn't contain inhibitors. Perform dilutions accurately using calibrated pipettes. Verify the concentration of the highest dilution using a quantitative method if possible.
+\end{itemize}
+
+\subsection{Selecting the Matrix}
+
+The surrogate matrix should match the relevant properties of the patient sample matrix.
+\begin{itemize}
+    \item **Patient Sample Matrix:** Individual or pooled patient samples are preferred. Pooling can mitigate the effect of individual variations but should be done carefully, ideally with samples of the same type (serum with serum). Minimize the number of samples in a pool for highly variable matrixes (like nasal swabs).
+    \item **Altered Biological Matrix:** Modified patient samples (e.g., stripped of analyte). Risk altering other matrix properties.
+    \item **Artificial Matrix:** Created to mimic patient samples. Consider viscosity, cellular components, protein, electrolytes, pH. Establish equivalence to patient matrixes using studies like dilutional linearity or spike-and-recovery \cite{CLSIEP14, CLSIEP35}. If the artificial matrix is significantly different, justify its use and document the specific performance characteristics assessed.
+    \item **Matrix Components:** Be aware of components in the matrix (e.g., enzymes) that could degrade the analyte. Refer to CLSI document C49 \cite{CLSIC49} for guidance on matrix effects.
+    \item **Nonhuman Specimens:** Generally not acceptable as artificial matrixes due to biological differences that can cause non-specific reactions.
+\end{itemize}
+
+\textbf{Practical Example (Matrix Preparation):}
+You need a large volume of matrix for interference studies for a urine test. Finding enough negative urine samples is challenging.
+\begin{itemize}
+    \item **Method:** Create an artificial urine matrix.
+    \item **Preparation:** Use a recipe for artificial urine (see Appendix B examples) containing appropriate salts, urea, creatinine, etc., dissolved in water. Adjust pH and specific gravity to match typical urine.
+    \item **Consideration:** Perform a matrix comparison study comparing test performance in this artificial urine matrix versus real negative urine samples to ensure they behave similarly, especially regarding potential interference effects.
+\end{itemize}
+
+\subsection{Surrogate Sample Stability}
+
+Surrogate samples must be stable for the duration of the study, which might be longer or under different conditions than routine patient sample storage \cite{CLSIEP25}. Stability studies should be designed to validate storage conditions (various temperatures) and freeze-thaw cycles.
+
+Stability requirements depend on the study type (e.g., linearity needs short-term stability, precision panels need longer). Analyte or matrix characteristics can affect stability. Artificial analytes might degrade differently in a biological matrix than natural analytes.
+
+Altered matrixes (like stripped samples) might be less stable than native matrixes. Stability of large sample pools must also be established. Surrogate samples should undergo the same pre-examination steps as patient samples before testing to ensure equivalent processing of the analyte.
+
+\subsection{Process Steps}
+
+Detailed process steps, including mixing techniques, should be documented. For example, specify if gentle inversion or mechanical mixing is needed and at what speed to avoid issues like frothing. Critical parameters like pH, conductivity, and density might need evaluation and testing. Testing the final concentration can confirm the target was met.
+
+\subsection{Storage}
+
+Storage conditions and containers are important for maintaining sample integrity.
+\begin{itemize}
+    \item **Freeze-Thaw:** If samples will be frozen, determine the maximum number of freeze-thaw cycles they can withstand.
+    \item **Containers:** Choose appropriate containers (e.g., cryogenic vials for freezing). Consider the material (glass vs. plastic) as surfaces can bind analytes or matrix components. High-density polyethylene is often preferred for freezing due to strength.
+    \item **Binding:** Adding a carrier molecule like serum albumin to synthetic matrixes can prevent analyte binding to plastic.
+    \item **Lyophilization:** An option for long-term storage, but reconstitution can introduce variability.
+    \item **Light Sensitivity:** Use blackout or amber tubes for light-sensitive analytes.
+\end{itemize}
+
+\textbf{Practical Example (Storage):}
+You have prepared a large batch of spiked serum pool for a long-term precision study that will run for 30 days, requiring daily testing. The pool needs to be stored frozen in aliquots.
+\begin{itemize}
+    \item **Method:** Aliquot the pooled serum into appropriate storage vials.
+    \item **Preparation:** Use cryovials made of high-density polyethylene. Aliquot into volumes sufficient for one day's testing to minimize freeze-thaw cycles per aliquot.
+    \item **Consideration:** Perform a freeze-thaw stability study on a representative aliquot to confirm that the analyte concentration and matrix properties remain stable after the expected number of cycles. Store aliquots at $-20^\circ$C or colder.
+\end{itemize}
+
+\section{Special Considerations}
+
+This chapter covers specific situations and challenges when using surrogate samples.
+
+\subsection{Qualifying the Surrogate Sample}
+
+Before use, surrogate samples must be qualified to ensure they meet study specifications and are comparable to patient samples. Qualification confirms suitability and comparability. A sample suitable for one study might not be for another. Sufficient volume for qualification and the study is needed.
+
+Typical qualification steps:
+\begin{itemize}
+    \item Confirming analyte concentration (target value and acceptable range). Value assignment tests with sufficient replicates and runs are used.
+    \item Evaluating stability (storage, freeze-thaw, room temperature).
+    \item Assessing comparability to patient samples or standards (see Subchapter 7.2).
+    \item Checking physical conditions (volume, pH, viscosity).
+    \item Analytical testing (e.g., using chromatography, certificate of analysis for purchased materials).
+    \item Commutability studies for certain quantitative tests, especially for reference materials or stable panels used to demonstrate clinical validity \cite{CLSIEP14, CLSIEP30}.
+\end{itemize}
+
+For surrogate analyte approaches, qualification might involve demonstrating similar extraction recovery in patient and surrogate matrixes. For surrogate matrix approaches, demonstrate similar extraction recovery of the analyte.
+
+\textbf{Practical Example (Qualification):}
+You have prepared a spiked serum pool (B2) for a precision study.
+\begin{itemize}
+    \item **Qualification Step:** Value assignment. Test the pool multiple times over several runs using the test method to confirm the average analyte concentration is within the target range for the precision study level (e.g., low, medium, high).
+    \item **Qualification Step:** Stability testing. Store aliquots at the planned storage temperature (e.g., $-20^\circ$C) and test them at intervals (e.g., weekly) over the planned study duration (e.g., 30 days) to confirm the concentration remains stable within acceptable limits. Perform freeze-thaw cycles on separate aliquots to test that stability.
+\end{itemize}
+
+\subsection{Demonstrating Comparability}
+
+If there isn't strong existing scientific evidence supporting the use of a specific surrogate sample type, studies may be needed to show it performs comparably to patient samples. The type of comparability study depends on the test (quantitative vs. qualitative) and the surrogate sample's use.
+
+\subsubsection{Quantitative Tests}
+
+Surrogate samples are often used to supplement method comparison studies, especially for rare high values. However, they might have lower variability than patient samples, potentially making confidence intervals seem better than they are. To assess differences, patient and surrogate samples should have overlapping concentrations (Figure 5).
+
+\begin{figure}[h!]
+    \centering
+    % Simplified representation of Figure 5
+    \caption{Comparison of Patient and Surrogate Samples With Overlapping Concentrations \cite{CLSIEP39Ed1E}}
+    % Textual description provided below.
+\end{figure}
+
+\textbf{Overlapping Concentrations Description:} The figure conceptually shows a range of concentrations on the horizontal axis. Patient samples cover a certain range, and surrogate samples cover a potentially different range, but there is an overlap where both types of samples have similar concentrations. This overlap is where direct comparison is most informative.
+
+Statistical analysis (e.g., linear regression like Deming or Passing-Bablok) should be appropriate for the test. Analyze patient and surrogate sample data separately first. If surrogate samples fall within the prediction interval of the patient sample regression line, they are comparable. Concentrations should cover the AMI and MDLs. If criteria aren't met, assess the clinical impact. Contingency tables can help evaluate agreement at MDLs \cite{CLSIEP12, CLSIMM17}.
+
+\textbf{Practical Example (Quantitative Comparability):}
+You used spiked serum pools (B2) to supplement a method comparison study for a quantitative assay, especially at high concentrations.
+\begin{itemize}
+    \item **Method:** Plot the results of the candidate method vs. the comparative method for both patient samples and surrogate samples on the same graph. Perform separate regression analyses (e.g., Deming regression) for the patient data and the surrogate data.
+    \item **Assessment:** Check if the regression line and the scatter of the surrogate data points are similar to the patient data, particularly in the overlapping concentration range. Calculate the bias (difference between methods) at key medical decision levels for both patient and surrogate samples separately. If the biases are similar and the surrogate data falls within the expected range based on patient data, the surrogate samples are comparable for this study purpose.
+\end{itemize}
+
+\subsubsection{Qualitative Tests}
+
+Comparability for qualitative tests is assessed using Positive Percent Agreement (PPA) and Negative Percent Agreement (NPA) for patient and surrogate samples separately (see Subchapter 8.6.5). The percentage of samples near the cutoff (e.g., 2-3x LLoD) should be similar for both types. The overall distribution of concentrations should also be similar. If PPA and NPA are similar for both types, the surrogate samples are comparable. If surrogate samples are only a small part of the total dataset, they are less likely to introduce bias.
+
+Validation studies for qualitative tests often include samples at 2-3 times the LLoD to ensure detection under various conditions. Surrogate samples are useful if low-concentration patient samples are hard to get \cite{CLSIEP12}.
+
+\textbf{Practical Example (Qualitative Comparability):}
+You used spiked samples (B1 or B2) to create low-positive samples near the cutoff for a qualitative infectious disease assay method comparison.
+\begin{itemize}
+    \item **Method:** Test both patient samples and spiked surrogate samples on the candidate and comparative methods. Create 2x2 tables comparing the results (Positive/Negative) for patient samples and surrogate samples separately. Calculate PPA and NPA for each group.
+    \item **Assessment:** Compare the PPA and NPA values (and their confidence intervals) for patient samples and surrogate samples. If they are similar, the surrogate samples are considered comparable for this study purpose. Ensure a sufficient number of both patient and surrogate samples were tested near the assay cutoff.
+\end{itemize}
+
+\subsection{Using Surrogate Samples for More Than One Study}
+
+Preparing surrogate samples can be time-consuming. Planning to use them for multiple studies is efficient. Determine all intended uses before characterization studies. For example, a negative surrogate sample can be used as the low pool for sensitivity and linearity studies. Characterization confirms suitability for these uses. A low-concentration sample isn't useful for an LoB study but can be a matrix source for other low-concentration samples (interference, precision). A high-concentration matrix is good for high-concentration studies. If analyte stock is limited, plan which studies will use it.
+
+\subsection{Preparing Blank Surrogate Samples}
+
+Blank (analyte-free) surrogate samples are needed for validation studies like detection limits, interference, and linearity at the low end. Ideally, they should be similar to patient samples but without the analyte. They should mimic physical and chemical properties (cellular content, viscosity, composition, pH).
+
+\begin{itemize}
+    \item **Preference:** Patient samples that are truly analyte-free or have concentrations far below the LLoD (A1) are preferred.
+    \item **Next Best:** Pool a small number of patient samples (A2) to preserve biological composition if individual volume is insufficient \cite{CLSIEP17}.
+    \item **Alternative:** Use a simulated artificial matrix (G) that closely resembles the patient sample composition (cellular background, normal flora, protein, electrolytes, pH). Appendix B provides examples. Synthetic samples can sometimes be purchased.
+    \item **Population-Specific Blanks:** Use patient samples from populations not expected to have the analyte (e.g., male serum for $\beta$hCG).
+    \item **Stripped Samples:** Remove analyte from patient samples using techniques like precipitation, enzymatic degradation, or adsorption (e.g., charcoal stripping). This risks changing the matrix composition.
+\end{itemize}
+
+Artificial matrix examples in Appendix B are reference points, not the only possible formulations. Consider sample timing (e.g., fasted vs. fed state for intestinal fluid).
+
+Endogenous elements can be beneficial but in excess can cause matrix effects. Patient samples should be free of obvious interferents, but surrogate samples should still reflect sample complexity, not be artificially simplified.
+
+Blank surrogate samples can be spiked with low analyte concentrations for LLoD/LLoQ studies (preferably in unaltered biological matrix) \cite{CLSIEP17}, rare matrix studies (artificial matrix may be needed), or interference studies (spike interferents into blank samples) \cite{CLSIEP07, CLSIEP37}.
+
+Artificial matrixes are well-established for some tests. Justify their use in the sample plan with data or literature. A matrix comparison study can support using an artificial matrix if data is lacking. This study compares performance in natural vs. artificial matrix, ideally covering concentrations above and below the LLoD. Nonhuman specimens are generally unsuitable as artificial matrixes. Table 4 lists considerations for specific blank matrix types.
+
+\begin{table}[h!]
+\centering
+\caption{Example Factors to Consider When a Blank Matrix Is Chosen \cite{CLSIEP39Ed1E}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{10cm}}
+\toprule
+\textbf{Surrogate Sample} & \textbf{Considerations} \\
+\midrule
+Respiratory (BAL, sputum, nasopharyngeal) & Pooling negative human clinical specimens creates a representative matrix with normal flora and cells. Artificial matrix should mimic chemical composition and potentially add non-target organisms/cells. \\
+Vaginal fluid & Natural matrix may contain target analytes as normal flora. LLoD may be determined in artificial matrix, but confirmed in natural/simulated matrix. \\
+Cervical tissue for HPV testing & HPV-negative cell lines can be blank. Spiked cell lines (SiHa, HeLa) can be positive. Compare LLoD in pooled negative clinical matrix vs. HPV-negative cell line in LBC media to show equivalence. \\
+Serum & Blank serum is used for spiking. May need buffer/salt adjustments for some methods. \\
+Blood culture & LLoD determined by spiking positive cultures into negative simulated matrix (e.g., blood culture media + human blood). \\
+\bottomrule
+\multicolumn{2}{p{15cm}}{Abbreviations: BAL, bronchoalveolar lavage; HPV, human papilloma virus; LBC, liquid-based cytology; LLoD, lower limit of detection.}
+\end{tabular}
+\end{table}
+
+\textbf{Practical Example (Blank Sample Preparation):}
+You need a large volume of negative nasopharyngeal matrix for a carryover study for a molecular respiratory panel. Finding enough negative patient swabs is difficult.
+\begin{itemize}
+    \item **Method:** Create a simulated artificial matrix (G).
+    \item **Preparation:** Prepare a matrix solution that mimics the chemical composition of nasopharyngeal fluid. To make it more realistic, add common non-target respiratory flora organisms and potentially a cell line to simulate the cellular background.
+    \item **Consideration:** Verify that this artificial matrix is truly negative for all targets on your panel. Perform a matrix comparison study to show that the physical properties (like viscosity) and test performance in this artificial matrix are comparable to real negative nasopharyngeal samples, especially regarding potential carryover effects.
+\end{itemize}
+
+\subsection{Creating a Single Signature Score From Multiple Genes}
+
+This applies to molecular tests and other multi-analyte tests that report a single combined result (score). Surrogate samples are useful for creating specific combinations of analyte concentrations that might be rare in patient samples but are needed to evaluate the score calculation.
+
+\begin{itemize}
+    \item **General Principles:** Chapter 8 principles apply.
+    \item **Score vs. Analyte:** Some studies (interference, cross-reactivity) relate to the final score; others (sensitivity, linearity) require assessing individual analytes.
+    \item **Combinations:** Different analyte combinations can yield the same score. Include all *realistic* combinations for each desired score. Using multiple samples with the same score but different underlying analyte combinations is encouraged to assess precision for that score.
+    \item **Understanding Calculation:** Know how individual analytes are weighted or combined to determine the score.
+    \item **Analyte Source:** If individual pure analytes are unavailable, use a patient sample containing all relevant derivatives.
+    \item **Realistic Combinations:** If many analytes exist, focus on clinically relevant combinations based on the biology of the intended population (e.g., avoid combinations of mutations known to be mutually exclusive).
+\end{itemize}
+
+\textbf{Practical Example (Multi-analyte Score):}
+You have a molecular test that reports a risk score based on the expression levels of 5 different genes. You need to verify that the score calculation is accurate for various combinations of gene expression levels, including some combinations that are rare in patient samples but biologically plausible.
+\begin{itemize}
+    \item **Method:** Create surrogate samples by spiking artificial RNA transcripts (Artificial Analyte) for the 5 genes into a negative biological matrix (e.g., pooled normal human RNA extract).
+    \item **Preparation:** Prepare multiple surrogate samples, each with a different combination of the 5 RNA transcript concentrations. Design these combinations to represent different possible biological scenarios and to yield specific target scores (e.g., low, medium, high risk).
+    \item **Consideration:** Verify the concentration of each individual RNA transcript in the spiked samples using a reference method. Test these samples on your assay and confirm that the calculated scores match the expected scores based on your spiking concentrations and calculation algorithm. Ensure the artificial transcripts behave similarly to natural mRNA in your assay workflow (extraction, amplification, detection).
+\end{itemize}
+
+\subsection{Rare Subtypes}
+
+Tests often establish performance (LLoD, LLoQ, linearity) using the most common analyte type. It's important to confirm these parameters for all relevant genotypes, subtypes, or variants.
+
+\begin{itemize}
+    \item **Qualitative Assays:** Confirm detection limits by diluting patient samples or isolates of the rare subtype in patient matrix to low-positive concentrations (near cutoff or 2-3x LLoD).
+    \item **Quantitative Assays:** Confirm LLoQ and linearity using surrogate panels with the rare subtype analyte. If high-concentration patient samples/isolates are unavailable, use alternative sources like plasmid DNA, transcripts, or other artificial analyte sources.
+    \item **Microbiological Tests:** Select representative surrogate microorganisms based on genetic similarity (in silico analysis).
+\end{itemize}
+
+\textbf{Practical Example (Rare Subtype):}
+Your molecular assay detects different genotypes of a virus. You've established the LLoD using the most common genotype. You need to confirm the LLoD is similar for a rare genotype.
+\begin{itemize}
+    \item **Method:** Obtain a sample or isolate containing the rare genotype. If a high-titer patient sample is unavailable, use a characterized isolate grown in culture or a synthetic construct (e.g., plasmid DNA) containing the target sequence for the rare genotype (Biological or Artificial Analyte).
+    \item **Preparation:** Dilute the rare genotype source material into a negative patient sample matrix (Unaltered Biological Matrix - Pool or Individual) to create a series of low-positive samples around the expected LLoD.
+    \item **Consideration:** Test these diluted samples multiple times (e.g., 20 replicates per concentration) to estimate the LLoD for the rare genotype using probit analysis or similar methods \cite{CLSIEP17}. Compare this LLoD to the LLoD established for the common genotype. Document the source and characterization of the rare genotype material.
+\end{itemize}
+
+\subsection{Surrogate Samples for Molecular Assays}
+
+Molecular assays have specific considerations:
+\begin{itemize}
+    \item **Panel-Based Testing:** Blending multiple targets in one sample. Carefully adjust concentrations to reflect biological diversity. Ensure target combinations don't interfere or bias results. Evaluate competitive inhibition. Test combinations not normally found in patients if needed to check assay logic.
+    \item **Upstream Processing:** Sample processing (extraction, enrichment) affects target integrity and concentration. Surrogate samples must mimic how patient samples are processed. Formalin fixation can damage nucleic acids; surrogate FFPE samples should reflect this. Shearing DNA for liquid biopsy samples can cause loss; surrogates should account for this.
+    \item **Analyte vs. Matrix Priority:** Depending on prevalence and availability, prioritize either biological analyte in an altered matrix or artificial analyte in a biological matrix. Justify the choice. For example, for Chlamydia detection, matrix might be prioritized due to sample sourcing difficulty and volume needs for carryover studies. For CMV viral load, different analyte sources might be needed for different concentration ranges. For liquid biopsy, a rare target patient sample might be combined with a surrogate matrix for volume.
+    \item **Spiking Phase:** Spiking analyte at different points in a complex workflow (like liquid biopsy) can yield different results; spike at a phase that best mimics the patient sample.
+\end{itemize}
+
+\textbf{Practical Example (Molecular Assay - Upstream Processing):}
+Your assay tests for mutations in DNA extracted from FFPE tissue. You need surrogate samples with specific mutations at known allele frequencies.
+\begin{itemize}
+    \item **Method:** Use cell lines with known mutations (Biological Analyte) embedded in paraffin blocks to create surrogate FFPE samples.
+    \item **Preparation:** Mix cells with the desired mutations with wild-type cells at specific ratios to achieve target allele frequencies. Process these cell mixtures into paraffin blocks using standard FFPE procedures.
+    \item **Consideration:** Extract DNA from these surrogate FFPE blocks using the same extraction method used for patient samples. Quantify the DNA yield and verify the allele frequency of the mutation in the extracted DNA using a reference method (e.g., digital PCR). Test these extracted DNA samples on your assay to ensure the mutation is detected at the expected allele frequency, mimicking the performance with patient FFPE samples.
+\end{itemize}
+
+\section{Application to Performance Studies}
+
+This chapter details how to apply the surrogate sample hierarchy and principles to specific types of performance studies. The best surrogate sample type varies depending on the study objective. Each section includes a table showing the hierarchy specifically for that study type, using the color legend from Table 5.
+
+\subsection{Linearity}
+
+\subsubsection{Objective}
+To determine the range of analyte concentrations where the test results are directly proportional to the actual concentration. Studies should cover the expected AMI and slightly beyond \cite{CLSIEP06}.
+
+\subsubsection{Principles for Surrogate Sample Use}
+Surrogate samples are commonly used to create samples with known, proportional concentrations across the desired range in a representative matrix. Balance analyte and matrix integrity while minimizing matrix variability.
+\begin{itemize}
+    \item **High Pool Source:** Determine if a patient sample with a high analyte concentration is available. If not, spiking is needed.
+    \item **Matrix:** Pooled patient samples are often preferred for matrix for intermediate dilutions as they provide volume and reduce sample-to-sample variability compared to diluting individual samples. Starting with one high-concentration pool minimizes matrix effects in dilutions.
+    \item **Low Pool Source:** If a truly blank patient sample is unavailable, an artificial matrix can be used for samples below the LLoD. For sex-specific analytes, samples from the opposite sex can be used for the low pool. LLoD/LLoQ can guide the lowest concentration \cite{CLSIEP17}.
+\end{itemize}
+
+\subsubsection{When to Use}
+When sufficient patient sample volume is needed to prepare dilutions and replicates across the AMI, which is often challenging to obtain \cite{CLSIEP06}.
+
+\subsubsection{How to Use}
+\begin{itemize}
+    \item **Preferred:** High-concentration individual patient sample (A1) diluted with a blank/low-concentration patient sample (A2) to create panel members (Table 6).
+    \item **Common Alternative:** Spike a patient sample (B1) or pool (B2) with analyte (biological or artificial E1/E2) to create a high concentration, then dilute with blank patient sample or artificial matrix (D1/D2 or F1/F2) to make the panel.
+    \item **Artificial Analytes:** For E1/E2, analyte is added directly to the matrix at varying concentrations.
+\end{itemize}
+
+\begin{table}[h!]
+\centering
+\caption{Linearity Study Hierarchy \cite{CLSIEP39Ed1E}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{5cm} >{\raggedright\arraybackslash}p{8cm}}
+\toprule
+\textbf{Linearity Sample} & \textbf{Sample Definition} \\
+\midrule
+\textcolor{darkgreen}{A1} & Patient sample (unspiked, individual) \\
+\textcolor{darkgreen}{A2} & Pooled (unspiked, pool) \\
+\textcolor{darkgreen}{B1} & Supplemented (biological spiked, individual) \\
+\textcolor{darkgreen}{B2} & Pooled (biological spiked, pool) \\
+\textcolor{orange}{E1} & Simulated analyte (artificial spiked, individual) \\
+\textcolor{orange}{E2} & Simulated analyte (artificial spiked, pool) \\
+\textcolor{orange}{C1} & Simulated matrix (unspiked, individual) \\
+\textcolor{orange}{C2} & Simulated matrix (unspiked, pool) \\
+\textcolor{orange}{D1} & Simulated matrix (biological spiked, individual) \\
+\textcolor{orange}{D2} & Simulated matrix (biological spiked, pool) \\
+\textcolor{red}{F1} & Simulated analyte/matrix (artificial spiked, individual) \\
+\textcolor{red}{F2} & Simulated analyte/matrix (artificial spiked, pool) \\
+\textcolor{red}{H} & Simulated matrix (biological spiked, artificial) \\
+\textcolor{red}{I} & Simulated matrix (artificial spiked, artificial) \\
+\textcolor{red}{G} & Simulated matrix (unspiked, artificial) \\
+\bottomrule
+\multicolumn{2}{p{13cm}}{* Hierarchy flows downwards. Colors indicate preference as per Table 5.}
+\end{tabular}
+\end{table}
+
+\textbf{Practical Example (Linearity Study):}
+You need to perform a linearity study for a quantitative blood glucose assay.
+\begin{itemize}
+    \item **Method:** Obtain a high-glucose patient sample (A1). Obtain a large volume of pooled normal human serum (A2) verified to have low glucose.
+    \item **Preparation:** Create a linearity panel by making serial dilutions of the high-glucose patient sample (A1) using the pooled normal serum (A2) as the diluent. Prepare 5-7 concentration levels spanning the expected AMI (e.g., 20 mg/dL to 500 mg/dL).
+    \item **Testing:** Test multiple replicates (e.g., 3-5) of each concentration level on your glucose assay.
+    \item **Analysis:** Plot the measured values against the expected values (based on dilutions). Analyze the data using appropriate linearity statistics (e.g., polynomial regression, bias plot) to confirm linearity across the AMI \cite{CLSIEP06}.
+\end{itemize}
+
+\subsection{Analytical Specificity}
+
+\subsubsection{Objective}
+To evaluate if substances present in patient samples interfere with the test result (interference, cross-reactivity). Studies assess test performance in the presence of potential interferents \cite{CLSIEP07}.
+
+\subsubsection{Principles for Surrogate Sample Use}
+Surrogate samples allow testing specific combinations of analyte and interferent concentrations that are rare or hard to obtain in patient samples (e.g., very high interferent levels). Maintain individual sample variability where possible. Surrogate samples should go through all assay steps, including extraction if applicable.
+
+\subsubsection{When to Use}
+To control the amount of potential interferents and quantify their effect on the test result.
+
+\subsubsection{How to Use}
+\begin{itemize}
+    \item **Preferred:** Unspiked individual patient sample (A1) if analyte and interferent can be accurately measured by other methods (Table 7).
+    \item **Alternatives:** If A1 is insufficient, follow the hierarchy. Pooling (A2) might be necessary but could mask individual interference effects. Spike patient samples (B1/B2) or artificial matrix (H/I) with specific interferents at target concentrations.
+    \item **Blank Samples:** For exogenous analytes (e.g., infectious diseases), use a simulated artificial matrix (G) to ensure samples are truly negative for the target analyte.
+\end{itemize}
+
+\begin{table}[h!]
+\centering
+\caption{Analytical Specificity Study Hierarchy \cite{CLSIEP39Ed1E}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{5cm} >{\raggedright\arraybackslash}p{8cm}}
+\toprule
+\textbf{Analytical Specificity Sample} & \textbf{Sample Definition} \\
+\midrule
+\textcolor{darkgreen}{A1} & Patient sample (unspiked, individual) \\
+\textcolor{darkgreen}{A2} & Pooled (unspiked, pool) \\
+\textcolor{darkgreen}{B1} & Supplemented (biological spiked, individual) \\
+\textcolor{darkgreen}{B2} & Pooled (biological spiked, pool) \\
+\textcolor{orange}{E1} & Simulated analyte (artificial spiked, individual) \\
+\textcolor{orange}{E2} & Simulated analyte (artificial spiked, pool) \\
+\textcolor{orange}{C1} & Simulated matrix (unspiked, individual) \\
+\textcolor{orange}{C2} & Simulated matrix (unspiked, pool) \\
+\textcolor{orange}{D1} & Simulated matrix (biological spiked, individual) \\
+\textcolor{orange}{D2} & Simulated matrix (biological spiked, pool) \\
+\textcolor{red}{F1} & Simulated analyte/matrix (artificial spiked, individual) \\
+\textcolor{red}{F2} & Simulated analyte/matrix (artificial spiked, pool) \\
+\textcolor{red}{G} & Simulated matrix (unspiked, artificial) \\
+\textcolor{red}{H} & Simulated matrix (biological spiked, artificial) \\
+\textcolor{red}{I} & Simulated matrix (artificial spiked, artificial) \\
+\bottomrule
+\multicolumn{2}{p{13cm}}{* Hierarchy flows downwards. Colors indicate preference as per Table 5.}
+\end{tabular}
+\end{table}
+
+\subsubsection{Additional Considerations}
+Interferents can be introduced during sample preparation (e.g., fixation). Evaluate this by comparing samples processed differently. Adding interferents might not mimic physiological conditions (e.g., missing active metabolites, binding effects). Refer to literature for guidance on using specific interferents \cite{CLSIEP37}. Some interferents (e.g., necrotic tissue) cannot be simulated; use patient samples. For infectious disease assays, ensure surrogate samples near MDLs react appropriately to the target antigens.
+
+\textbf{Practical Example (Analytical Specificity):}
+You need to test if high levels of bilirubin interfere with your quantitative albumin assay in serum.
+\begin{itemize}
+    \item **Method:** Obtain a pool of normal human serum (A2) verified to have typical albumin levels and low bilirubin. Obtain a stock solution of purified bilirubin (Artificial Analyte).
+    \item **Preparation:** Create several surrogate samples by spiking increasing concentrations of bilirubin stock into aliquots of the normal serum pool (B2). Also, prepare a control aliquot of the serum pool without added bilirubin. Ensure the bilirubin concentrations cover clinically relevant high levels.
+    \item **Testing:** Test all surrogate samples (spiked and control) on your albumin assay.
+    \item **Analysis:** Compare the measured albumin concentration in the spiked samples to the control sample. If the albumin result changes significantly (e.g., by more than a predefined acceptance criterion like 10\%) at high bilirubin concentrations, bilirubin is an interferent. Document the bilirubin concentration at which interference occurs \cite{CLSIEP07}.
+\end{itemize}
+
+\subsection{Precision}
+
+\subsubsection{Objective}
+To evaluate the variability of test results when measurements are repeated on the same or similar samples under different conditions (within-run, between-run, between-day, etc.) \cite{CLSIEP05}.
+
+\subsubsection{Principles for Surrogate Sample Use}
+Surrogate samples are widely used to provide sufficient volume and stability for repeated measurements over time. Preferred types are pooled patient samples or spiked individual patient samples. Analyte concentration can be adjusted by spiking or dilution.
+
+\subsubsection{When and How to Use}
+Surrogate samples are often needed due to the high volume and stability requirements of precision studies. They provide sufficient volume with known analyte concentrations across the AMI.
+\begin{itemize}
+    \item **Preferred:** Unspiked individual patient sample (A1) (Table 8).
+    \item **Alternatives:** If A1 is insufficient, use unspiked pooled patient sample (A2), then spiked individual (B1), then spiked pooled (B2).
+    \item **High Concentration:** If a high-concentration patient sample is unavailable, spike individual (E1) or pooled (E2) samples with appropriate stock.
+    \item **Multiplexed Tests:** Create samples with multiple targets (see Subchapter 7.5). Less preferred options like altered (C1/C2, D1/D2, F1/F2) or artificial (G, H, I) matrixes might be used with justification.
+    \item **Unaltered Analyte Priority:** If unaltered analyte is more important, C1, D1, C2, D2 are next options after B2. For molecular tests, altered matrix with biological analyte (C1, D1) might be better than biological matrix with artificial nucleic acid (E1).
+\end{itemize}
+
+\begin{table}[h!]
+\centering
+\caption{Precision Study Hierarchy \cite{CLSIEP39Ed1E}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{5cm} >{\raggedright\arraybackslash}p{8cm}}
+\toprule
+\textbf{Precision Sample} & \textbf{Sample Definition} \\
+\midrule
+\textcolor{darkgreen}{A1} & Patient sample (unspiked, individual) \\
+\textcolor{darkgreen}{A2} & Pooled (unspiked, pool) \\
+\textcolor{darkgreen}{B1} & Supplemented (biological spiked, individual) \\
+\textcolor{darkgreen}{B2} & Pooled (biological spiked, pool) \\
+\textcolor{orange}{E1} & Simulated analyte (artificial spiked, individual) \\
+\textcolor{orange}{E2} & Simulated analyte (artificial spiked, pool) \\
+\textcolor{orange}{C1} & Simulated matrix (unspiked, individual) \\
+\textcolor{orange}{C2} & Simulated matrix (unspiked, pool) \\
+\textcolor{orange}{D1} & Simulated matrix (biological spiked, individual) \\
+\textcolor{orange}{D2} & Simulated matrix (biological spiked, pool) \\
+\textcolor{red}{F1} & Simulated analyte/matrix (artificial spiked, individual) \\
+\textcolor{red}{F2} & Simulated analyte/matrix (artificial spiked, pool) \\
+\textcolor{red}{H} & Simulated matrix (biological spiked, artificial) \\
+\textcolor{red}{I} & Simulated matrix (artificial spiked, artificial) \\
+\textcolor{red}{G} & Simulated matrix (unspiked, artificial) \\
+\bottomrule
+\multicolumn{2}{p{13cm}}{* Hierarchy flows downwards. Colors indicate preference as per Table 5.}
+\end{tabular}
+\end{table}
+
+\subsubsection{Additional Considerations}
+Using individual spiked patient samples can better represent sample variability. Replacing all patient samples with surrogates might lead to incorrect conclusions about test performance. Supplement small patient sample studies with larger surrogate sample studies if possible. Pooled patient samples are typically used, often spiked or diluted to target concentrations.
+
+\textbf{Practical Example (Precision Study):}
+You need to perform a 20-day precision study for a quantitative immunoassay. You need samples at three concentration levels (low, medium, high).
+\begin{itemize}
+    \item **Method:** Obtain large volumes of pooled human serum (A2). Spike aliquots of the pool with purified analyte (Artificial Analyte, E2) to achieve the target low, medium, and high concentrations. Prepare enough volume of each pool for 20 days of testing, plus extra for potential repeats.
+    \item **Preparation:** Aliquot the low, medium, and high pools into daily use vials and store frozen (e.g., $-20^\circ$C). Include a control aliquot stored long-term (e.g., $-70^\circ$C) as a reference.
+    \item **Testing:** Each day for 20 days, thaw one aliquot of each level and test multiple replicates (e.g., 2 runs of 2 replicates each).
+    \item **Analysis:** Calculate the mean, standard deviation, and coefficient of variation for each concentration level across the 20 days to estimate total precision (reproducibility) \cite{CLSIEP05}. Analyze within-run and between-run/day components of variance.
+\end{itemize}
+
+\subsection{Detection Capability}
+
+\subsubsection{Objective}
+To assess the test's ability to detect and measure analyte at low concentrations, establishing LoB, LLoD, and/or LLoQ \cite{CLSIEP17}. These studies guide concentrations for other studies.
+
+\subsubsection{Principles for Surrogate Sample Use}
+Use multiple independent blank and/or low-concentration samples to account for matrix variability. Surrogate samples are acceptable if they perform similarly to patient samples. The matrix should closely resemble individual patient matrix and not contain extraneous substances that bias results. If artificial, characteristics must be defined and resemble patient samples.
+
+\subsubsection{When to Use}
+When sufficient volumes of patient samples with known (especially very low or blank) analyte concentrations are hard to find. Also appropriate when international standards are available.
+
+\subsubsection{How to Use}
+Prepare surrogate samples by diluting positive patient samples or spiking analyte (biological or artificial) into blank patient samples. Use high-concentration stock for spiking to limit dilution effects.
+\begin{itemize}
+    \item **LoB (Table 9):** Preferred is unspiked individual patient sample (A1) known to be blank. If insufficient, pool (A2), then use simulated matrix (C1/C2), then artificial matrix (G). Blank samples don't need target analyte (can be buffer) or can be $\ge$10x below lowest concentration of interest.
+    \item **LLoD (Table 10):** Preferred is unspiked individual patient sample (A1) or spiked individual with biological (B1) or artificial (E1) analyte. If insufficient, pool (A2, B2, E2), then simulated matrix (C1/C2, D1/D2, F1/F2), then artificial matrix (H/I). Dilutions should preferably use unspiked blank patient matrix. International standards can be analyte source, minimizing volume if matrix differs.
+    \item **LLoQ (Table 11):** Similar hierarchy to LLoD, but focuses on quantitative accuracy. Preferred is A1, then A2, B2, E2, D2, F2, H, I.
+\end{itemize}
+
+\begin{table}[h!]
+\centering
+\caption{LoB Study Hierarchy \cite{CLSIEP39Ed1E}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{5cm} >{\raggedright\arraybackslash}p{8cm}}
+\toprule
+\textbf{LoB Sample} & \textbf{Sample Definition} \\
+\midrule
+\textcolor{darkgreen}{A1} & Patient sample (unspiked, individual) \\
+\textcolor{darkgreen}{A2} & Pooled (unspiked, pool) \\
+\textcolor{orange}{C1} & Simulated matrix (unspiked, individual) \\
+\textcolor{orange}{C2} & Simulated matrix (unspiked, pool) \\
+\textcolor{red}{G} & Simulated matrix (unspiked, artificial) \\
+\textcolor{red}{*} & Remaining surrogate sample types may not be suitable for this study type. \\
+\bottomrule
+\multicolumn{2}{p{13cm}}{* Hierarchy flows downwards. Colors indicate preference as per Table 5. Abbreviation: LoB, limit of blank.}
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{LLoD Study Hierarchy \cite{CLSIEP39Ed1E}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{5cm} >{\raggedright\arraybackslash}p{8cm}}
+\toprule
+\textbf{LLoD Sample} & \textbf{Sample Definition} \\
+\midrule
+\textcolor{darkgreen}{A1} & Patient sample (unspiked, individual) \\
+\textcolor{darkgreen}{B1} & Supplemented (biological spiked, individual) \\
+\textcolor{orange}{E1} & Simulated analyte (artificial spiked, individual) \\
+\textcolor{darkgreen}{A2} & Pooled (unspiked, pool) \\
+\textcolor{darkgreen}{B2} & Pooled (biological spiked, pool) \\
+\textcolor{orange}{E2} & Simulated analyte (artificial spiked, pool) \\
+\textcolor{orange}{C1} & Simulated matrix (unspiked, individual) \\
+\textcolor{orange}{D1} & Simulated matrix (biological spiked, individual) \\
+\textcolor{red}{F1} & Simulated analyte/matrix (artificial spiked, individual) \\
+\textcolor{orange}{C2} & Simulated matrix (unspiked, pool) \\
+\textcolor{orange}{D2} & Simulated matrix (biological spiked, pool) \\
+\textcolor{red}{F2} & Simulated analyte/matrix (artificial spiked, pool) \\
+\textcolor{red}{H} & Simulated matrix (biological spiked, artificial) \\
+\textcolor{red}{I} & Simulated matrix (artificial spiked, artificial) \\
+\textcolor{red}{*} & Remaining surrogate sample types may not be suitable for this study type. \\
+\bottomrule
+\multicolumn{2}{p{13cm}}{* Hierarchy flows downwards. Colors indicate preference as per Table 5. Abbreviation: LLoD, lower limit of detection.}
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{LLoQ Study Hierarchy \cite{CLSIEP39Ed1E}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{5cm} >{\raggedright\arraybackslash}p{8cm}}
+\toprule
+\textbf{LLoQ Sample} & \textbf{Sample Definition} \\
+\midrule
+\textcolor{darkgreen}{A1} & Patient sample (unspiked, individual) \\
+\textcolor{darkgreen}{A2} & Pooled (unspiked, pool) \\
+\textcolor{darkgreen}{B2} & Pooled (biological spiked, pool) \\
+\textcolor{orange}{E2} & Simulated analyte (artificial spiked, pool) \\
+\textcolor{orange}{D2} & Simulated matrix (biological spiked, pool) \\
+\textcolor{red}{F2} & Simulated analyte/matrix (artificial spiked, pool) \\
+\textcolor{red}{H} & Simulated matrix (biological spiked, artificial) \\
+\textcolor{red}{I} & Simulated matrix (artificial spiked, artificial) \\
+\textcolor{red}{*} & Remaining surrogate sample types may not be suitable for this study type. \\
+\bottomrule
+\multicolumn{2}{p{13cm}}{* Hierarchy flows downwards. Colors indicate preference as per Table 5. Abbreviation: LLoQ, lower limit of quantitation.}
+\end{tabular}
+\end{table}
+
+\subsubsection{Additional Considerations}
+Preparing very low concentration samples can be challenging due to tool limitations; serial dilutions from a high stock are often used for solutions (not suspensions). Account for dilution errors. Stability of low-concentration panels is critical. Stripping matrixes might create instability or change properties. Ensure reproducible blank matrix pools can be created for other studies. Surrogate samples should reflect sample complexity, not be overly simplified.
+
+\textbf{Practical Example (LLoD Study):}
+You need to determine the LLoD for a new quantitative assay for a protein marker in serum. You have access to pooled negative human serum (A2) and a stock of purified human recombinant protein (Artificial Analyte).
+\begin{itemize}
+    \item **Method:** Prepare a high-concentration stock of the recombinant protein. Spike this stock into the pooled negative serum (E2) to create a sample with a concentration well above the expected LLoD.
+    \item **Preparation:** Perform serial dilutions of this spiked pool using the pooled negative serum (A2) as the diluent to create a series of samples with concentrations around and below the expected LLoD (e.g., 5-7 levels). Also include the pooled negative serum as a blank (A2).
+    \item **Testing:** Test multiple replicates (e.g., 20) of the blank sample and each low-concentration sample on your assay.
+    \item **Analysis:** Use the results from the blank samples to calculate the LoB. Use the results from the low-concentration samples and the LoB to estimate the LLoD (e.g., concentration detected 95\% of the time) \cite{CLSIEP17}.
+\end{itemize}
+
+\subsection{Matrix Comparison}
+
+\subsubsection{Objective}
+To assess if results are comparable when testing the same analyte using the same method but in different sample matrix types (e.g., serum vs. plasma) or to determine the suitability of using dissimilar matrixes (e.g., serum vs. urine) \cite{CLSIEP35}.
+
+\subsubsection{Principles for Surrogate Sample Use}
+Surrogate samples can help by providing sufficient volume or targeted analyte concentrations. Matrix stability should be considered.
+
+\subsubsection{When to Use}
+\begin{itemize}
+    \item **AMI Coverage:** To cover the full range of concentrations if patient samples are limited at high or low ends.
+    \item **MDL/Cutoff Coverage:** To ensure enough samples are available near critical decision points.
+    \item **Insufficient Positives:** For qualitative tests, to ensure enough positive samples are available to estimate PPA.
+    \item **Invasive Samples:** When samples are difficult or risky to collect (e.g., CSF).
+\end{itemize}
+
+\subsubsection{How to Use}
+\begin{itemize}
+    \item **Preferred:** Unspiked individual patient sample (A1) (Table 12).
+    \item **Alternatives:** If A1 is unavailable, use individual patient samples spiked with biological (B1) or artificial (E1) analyte. If individual samples are insufficient, use pooled samples (A2, B2, E2).
+    \item **Pooling:** When pooling for matrix comparison, contributions from each patient should be proportional between the matrix types being compared (e.g., if patient A's serum is 60\% of the serum pool, their plasma should be 60\% of the plasma pool).
+    \item **Supplementation:** If supplementing patient samples with surrogates, ensure overlapping concentrations for direct comparison. Conduct studies within established stability timeframes.
+    \item **Spiking:** When spiking one matrix type with analyte from another (e.g., spiking plasma with serum analyte), use the lowest possible volume of the spiking material to minimize its effect on the matrix.
+    \item **Qualitative Tests:** Preserve samples near the cutoff. Assess C5-C95 interval or LLoD for both matrixes. Increase replicates around the cutoff.
+\end{itemize}
+
+\begin{table}[h!]
+\centering
+\caption{Matrix Comparison Study Hierarchy \cite{CLSIEP39Ed1E}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{5cm} >{\raggedright\arraybackslash}p{8cm}}
+\toprule
+\textbf{Matrix Comparison Sample} & \textbf{Sample Definition} \\
+\midrule
+\textcolor{darkgreen}{A1} & Patient sample (unspiked, individual) \\
+\textcolor{darkgreen}{B1} & Supplemented (biological spiked, individual) \\
+\textcolor{orange}{E1} & Simulated analyte (artificial spiked, individual) \\
+\textcolor{darkgreen}{A2} & Pooled (unspiked, pool) \\
+\textcolor{darkgreen}{B2} & Pooled (biological spiked, pool) \\
+\textcolor{orange}{E2} & Simulated analyte (artificial spiked, pool) \\
+\textcolor{red}{*} & Remaining surrogate sample types may not be suitable for this study type. \\
+\bottomrule
+\multicolumn{2}{p{13cm}}{* Hierarchy flows downwards. Colors indicate preference as per Table 5.}
+\end{tabular}
+\end{table}
+
+\textbf{Practical Example (Matrix Comparison):}
+You need to compare test results for an analyte in serum versus EDTA plasma using your assay. You have paired serum and plasma samples from several patients, but not enough to cover the full AMI or have sufficient samples at high concentrations.
+\begin{itemize}
+    \item **Method:** Obtain additional paired serum and EDTA plasma samples from patients (A1). Obtain a high-concentration serum sample (A1) or pool (A2).
+    \item **Preparation:** Create surrogate samples by spiking aliquots of pooled negative serum (A2) and pooled negative EDTA plasma (A2) with the high-concentration serum/pool (B2) to create matched serum and plasma pools at several high concentrations. Ensure the spiking process introduces minimal volume change.
+    \item **Testing:** Test the original paired patient samples and the matched spiked serum and plasma pools on your assay.
+    \item **Analysis:** Plot plasma results vs. serum results for both patient and surrogate samples. Perform regression analysis (e.g., Deming) on the patient data. Assess if the surrogate data points fall within the prediction interval of the patient data regression line. Calculate the bias between serum and plasma results for both patient and surrogate samples, especially at MDLs. If performance is comparable, conclude that EDTA plasma is a suitable matrix \cite{CLSIEP35}.
+\end{itemize}
+
+\subsection{Method Comparison}
+
+\subsubsection{Objective}
+To compare a new (candidate) test method against an established (comparative) method to see if they are analytically and clinically equivalent \cite{CLSIEP09}. This section focuses on comparisons using the same matrix type.
+
+\subsubsection{Principles for Surrogate Sample Use}
+Each sample needs enough volume for testing on both methods (split sample design, Figure 6). Samples should reflect biological variability.
+\begin{itemize}
+    \item **Split Sample:** Divide a single sample into two portions, one for each method.
+    \item **Pooling:** If individual sample volume is insufficient, use "minipools" of as few samples as possible to preserve variability (Design B in Figure 7). Pool samples with similar characteristics.
+    \item **Spiking:** Use high-concentration stocks for spiking to minimize volume added. Use low-concentration or blank patient samples as diluent to minimize volume removed.
+\end{itemize}
+
+\begin{figure}[h!]
+    \centering
+    % Simplified representation of Figure 6
+    \caption{Comparison Study Split-Sample Design \cite{CLSIEP39Ed1E}}
+    % Textual description provided below.
+\end{figure}
+
+\textbf{Split-Sample Description:} A single specimen is collected. A portion (VolCand) is taken for testing on the Candidate method, and another portion (VolComp) is taken for testing on the Comparator method.
+
+\begin{figure}[h!]
+    \centering
+    % Simplified representation of Figure 7
+    \caption{Different Pooling Designs \cite{CLSIEP39Ed1E}}
+    % Textual description provided below.
+\end{figure}
+
+\textbf{Pooling Designs Description:}
+\begin{itemize}
+    \item **Design A (Not Recommended):** Several low-volume patient samples are combined into one large sample pool. This pool is then split into identical minipools. This reduces biological variability.
+    \item **Design B (Recommended):** Several low-volume patient samples are grouped into smaller sets. Each set is combined into a different minipool. This preserves more of the original sample variability across the minipools.
+\end{itemize}
+
+\subsubsection{When to Use}
+\begin{itemize}
+    \item **Insufficient Volume:** When individual patient samples don't have enough volume for both methods.
+    \item **AMI Coverage:** To cover the full range of concentrations, especially high or low values.
+    \item **MDL Coverage:** To ensure enough samples are near medical decision levels.
+    \item **Insufficient Positives:** For qualitative tests, to ensure enough positive samples are available to estimate PPA. Surrogate samples can help with relative comparisons (PPA/NPA) but not establish clinical sensitivity/specificity.
+\end{itemize}
+
+\subsubsection{How to Use}
+\begin{itemize}
+    \item **Preferred:** Unspiked individual patient samples (A1) (Table 13).
+    \item **Alternatives:** If A1 is unavailable, use individual patient samples spiked with biological (B1) or artificial (E1) analyte. If individual samples are insufficient, use pooled samples (A2, B2, E2). Pool samples with similar characteristics.
+    \item **Less Preferred:** Altered (C1/C2, D1/D2, F1/F2) or artificial (H/I) matrixes might be used with justification, depending on the sample type.
+\end{itemize}
+
+\begin{table}[h!]
+\centering
+\caption{Method Comparison Study Hierarchy \cite{CLSIEP39Ed1E}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{5cm} >{\raggedright\arraybackslash}p{8cm}}
+\toprule
+\textbf{Method Comparison Sample} & \textbf{Sample Definition} \\
+\midrule
+\textcolor{darkgreen}{A1} & Patient sample (unspiked, individual) \\
+\textcolor{darkgreen}{B1} & Supplemented (biological spiked, individual) \\
+\textcolor{darkgreen}{A2} & Pooled (unspiked, pool) \\
+\textcolor{darkgreen}{B2} & Pooled (biological spiked, pool) \\
+\textcolor{orange}{E1} & Simulated analyte (artificial spiked, individual) \\
+\textcolor{orange}{E2} & Simulated analyte (artificial spiked, pool) \\
+\textcolor{orange}{C1} & Simulated matrix (unspiked, individual) \\
+\textcolor{orange}{C2} & Simulated matrix (unspiked, pool) \\
+\textcolor{orange}{D1} & Simulated matrix (biological spiked, individual) \\
+\textcolor{orange}{D2} & Simulated matrix (biological spiked, pool) \\
+\textcolor{red}{F1} & Simulated analyte/matrix (artificial spiked, individual) \\
+\textcolor{red}{F2} & Simulated analyte/matrix (artificial spiked, pool) \\
+\textcolor{red}{H} & Simulated matrix (biological spiked, artificial) \\
+\textcolor{red}{I} & Simulated matrix (artificial spiked, artificial) \\
+\textcolor{red}{*} & Remaining surrogate sample types may not be suitable for this study type. \\
+\bottomrule
+\multicolumn{2}{p{13cm}}{* Hierarchy flows downwards. Colors indicate preference as per Table 5.}
+\end{tabular}
+\end{table}
+
+\subsubsection{Additional Considerations}
+\begin{itemize}
+    \item **Qualitative Tests:** Compare PPA and NPA between methods for patient and surrogate samples separately. If similar, combine data. Preserve samples near the cutoff \cite{CLSIEP09}.
+    \item **Quantitative Tests:** Compare bias at MDLs for patient and surrogate samples separately. If similar, combine data for regression analysis (see Subchapter 7.2.1).
+\end{itemize}
+
+\textbf{Practical Example (Method Comparison):}
+You are comparing a new automated immunoassay for a cardiac marker (candidate method) to your current manual ELISA method (comparative method). You need samples covering the AMI, especially around the medical decision level for diagnosing heart attack. You have patient samples, but not enough at very high concentrations.
+\begin{itemize}
+    \item **Method:** Obtain patient serum samples (A1) covering the low-to-mid concentration range and some high samples if possible. Obtain a large volume of pooled normal human serum (A2). Obtain a stock of purified cardiac marker protein (Artificial Analyte).
+    \item **Preparation:** Create surrogate samples by spiking the pooled normal serum (A2) with the purified protein stock (E2) to create pools at very high concentrations, including levels above the AMI. Also, create pools at the medical decision level and potentially other levels within the AMI if patient samples are sparse there.
+    \item **Testing:** Split each patient sample and each surrogate sample pool aliquot. Test one portion on the candidate method and the other on the comparative method.
+    \item **Analysis:** Plot candidate results vs. comparative results. Perform regression analysis (e.g., Deming) on the patient data. Separately, analyze the surrogate data. Assess bias at the medical decision level for both patient and surrogate data. If the surrogate data aligns well with the patient data and the biases are comparable, combine the data for a final method comparison report \cite{CLSIEP09}.
+\end{itemize}
+
+\subsection{Hook Effect}
+
+\subsubsection{Objective}
+To determine if a "hook effect" (prozone effect) occurs in immunometric assays at very high analyte concentrations, where the measured signal is falsely low (Figure 8) \cite{CLSIEP34}.
+
+\subsubsection{Principles for Surrogate Sample Use}
+Surrogate samples are commonly used to create samples with concentrations above the established AMI. Balance matrix and analyte integrity. A single high-concentration patient sample or pooled sample is often sufficient as a source. Excessive dilution should be avoided if it makes the matrix unrepresentative.
+
+\begin{figure}[h!]
+    \centering
+    % Simplified representation of Figure 8
+    \caption{Hook Effect \cite{CLSIEP39Ed1E}}
+    % Textual description provided below.
+\end{figure}
+
+\textbf{Hook Effect Description:} The figure shows a graph with analyte concentration on the horizontal axis and signal (e.g., absorbance) on the vertical axis. Within the AMI, the signal increases with concentration. Above the AMI, at very high concentrations, the signal unexpectedly decreases, forming a "hook" shape. This can lead to a falsely low result for a sample with a very high concentration.
+
+\subsubsection{When to Use}
+When patient samples with concentrations above the AMI are difficult to obtain.
+
+\subsubsection{How to Use}
+\begin{itemize}
+    \item **Preferred:** Unspiked individual patient sample (A1) with a concentration above the AMI and near the maximum clinically anticipated level, diluted with a blank/low patient sample to create a panel (Table 14).
+    \item **Common Alternative:** Spike a sample (B1 or E1) to a very high concentration, then dilute with a blank patient sample or a sample within the AMI to create a panel. Verify the concentration of the highest spiked sample.
+\end{itemize}
+The panel should include samples from very high concentrations down into the AMI to identify where the hook occurs.
+
+\begin{table}[h!]
+\centering
+\caption{Hook Effect Study Hierarchy \cite{CLSIEP39Ed1E}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{5cm} >{\raggedright\arraybackslash}p{8cm}}
+\toprule
+\textbf{Hook Effect Sample} & \textbf{Sample Definition} \\
+\midrule
+\textcolor{darkgreen}{A1} & Patient sample (unspiked, individual) \\
+\textcolor{darkgreen}{B1} & Supplemented (biological spiked, individual) \\
+\textcolor{orange}{E1} & Simulated analyte (artificial spiked, individual) \\
+\textcolor{darkgreen}{B2} & Pooled (biological spiked, pool) \\
+\textcolor{orange}{E2} & Simulated analyte (artificial spiked, pool) \\
+\textcolor{red}{*} & Remaining surrogate sample types may not be suitable for this study type. \\
+\bottomrule
+\multicolumn{2}{p{13cm}}{* Hierarchy flows downwards. Colors indicate preference as per Table 5.}
+\end{tabular}
+\end{table}
+
+\textbf{Practical Example (Hook Effect Study):}
+You are evaluating a new immunoassay for a tumor marker. You need to check for a hook effect at very high concentrations, as these can occur in patients with advanced disease. Patient samples with extremely high levels are rare.
+\begin{itemize}
+    \item **Method:** Obtain a stock of purified tumor marker protein (Artificial Analyte). Obtain a large volume of pooled normal human serum (A2).
+    \item **Preparation:** Spike the pooled normal serum (A2) with the purified protein stock (E2) to create a sample with a concentration significantly higher than the upper limit of your assay's AMI (e.g., 2-5 times the ULMI). Create a panel by serially diluting this very high sample with the pooled normal serum (A2) to create samples spanning from the very high concentration down through the AMI.
+    \item **Testing:** Test all samples in the dilution panel on your immunoassay.
+    \item **Analysis:** Plot the measured concentration (or signal) against the expected concentration (based on dilutions). Observe if the measured concentration decreases at the highest expected concentrations, indicating a hook effect. Determine the concentration at which the hook effect becomes significant \cite{CLSIEP34}.
+\end{itemize}
+
+\subsection{Sample Stability}
+
+\subsubsection{Objective}
+To assess how long a sample's measured characteristics remain within acceptable limits under defined storage and handling conditions \cite{CLSIEP35, CLSIEP25}.
+
+\subsubsection{Principles for Surrogate Sample Use}
+Surrogate samples can help assess analyte degradation in a known matrix. Their use is not as well-documented as for other studies. When patient samples are unavailable, surrogate samples with well-characterized, stable matrixes can help assess analyte stability.
+
+\subsubsection{When to Use}
+\begin{itemize}
+    \item Patient samples have insufficient volume for the study duration.
+    \item Patient samples with needed analyte concentrations are limited.
+    \item Analytes are associated with rare diseases or are emerging threats.
+\end{itemize}
+Consider the stability of the matrix itself to avoid bias. The same principles apply to samples manipulated by processing (e.g., extraction).
+
+\subsubsection{How to Use}
+\begin{itemize}
+    \item **Preferred:** Unspiked individual patient sample (A1) with sufficient volume and known analyte concentration at relevant levels (MDL, AMI, 2-3x LLoD) (Table 15).
+    \item **Alternatives:** If A1 is difficult to find, use a blank individual patient sample spiked with biological analyte (B1). If individual samples are insufficient, pool samples (A2 preferred over B2). Artificial analytes (E1 preferred over E2) may be acceptable with justification, but altered or artificial matrixes are generally not recommended for stability studies.
+\end{itemize}
+Ensure the surrogate matrix resembles patient matrix properties like viscosity. Process surrogates with the same pre-examination steps as patient samples.
+
+\begin{table}[h!]
+\centering
+\caption{Sample Stability Study Hierarchy \cite{CLSIEP39Ed1E}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{5cm} >{\raggedright\arraybackslash}p{8cm}}
+\toprule
+\textbf{Sample Stability Sample} & \textbf{Sample Definition} \\
+\midrule
+\textcolor{darkgreen}{A1} & Patient sample (unspiked, individual) \\
+\textcolor{darkgreen}{B1} & Supplemented (biological spiked, individual) \\
+\textcolor{darkgreen}{A2} & Pooled (unspiked, pool) \\
+\textcolor{darkgreen}{B2} & Pooled (biological spiked, pool) \\
+\textcolor{orange}{E1} & Simulated analyte (artificial spiked, individual) \\
+\textcolor{orange}{E2} & Simulated analyte (artificial spiked, pool) \\
+\textcolor{red}{*} & Remaining surrogate sample types may not be suitable for this study type. \\
+\bottomrule
+\multicolumn{2}{p{13cm}}{* Hierarchy flows downwards. Colors indicate preference as per Table 5.}
+\end{tabular}
+\end{table}
+
+\textbf{Practical Example (Sample Stability):}
+You need to determine the stability of a new analyte in serum when stored at $4^\circ$C for up to 7 days. The analyte is relatively rare, making it hard to find enough patient samples with detectable levels.
+\begin{itemize}
+    \item **Method:** Obtain a large volume of pooled normal human serum (A2). Obtain a stock of purified human analyte (Biological Analyte, B2).
+    \item **Preparation:** Spike the pooled normal serum (A2) with the purified analyte stock (B2) to create a pool with a concentration at a relevant level (e.g., near the medical decision level). Prepare multiple aliquots of this spiked pool. Store one aliquot frozen (e.g., $-70^\circ$C) as a reference. Store other aliquots at $4^\circ$C.
+    \item **Testing:** Test the reference aliquot and one aliquot stored at $4^\circ$C at different time points (e.g., 0, 1, 3, 5, 7 days).
+    \item **Analysis:** Compare the measured concentration at each time point to the concentration of the reference aliquot. If the concentration remains within a predefined acceptance criterion (e.g., $\pm 10\%$) for 7 days, conclude that the analyte is stable in serum at $4^\circ$C for 7 days \cite{CLSIEP35}.
+
+\end{itemize}
+
+\subsection{Carryover}
+
+\subsubsection{Objective}
+To demonstrate that analyte or sample material is not carried over from one sample to the next by automated liquid handling systems, which could cause false results \cite{CLSIEP39Ed1E}.
+
+\subsubsection{Principles for Surrogate Sample Use}
+The surrogate matrix must closely represent patient matrix, especially regarding physical properties like viscosity that can contribute to carryover. Nonhuman samples are generally unsuitable.
+
+\subsubsection{When to Use}
+When there are not enough patient samples with known, high analyte concentrations to assess carryover potential. Also, when sufficient volume of blank patient samples is unavailable and pooling might not guarantee they are analyte-free.
+
+\subsubsection{How to Use}
+Use surrogate samples derived from the intended patient sample types.
+\begin{itemize}
+    \item **Preferred:** Unspiked pooled patient sample (A2), or individual (B1) or pooled (B2) patient samples spiked to a high analyte concentration (Table 16).
+    \item **Alternatives:** Artificial analyte (E1/E2) may be acceptable with justification.
+    \item **Blank Samples:** If blank patient samples are insufficient, use a simulated artificial matrix (G, H, I) to ensure they are truly negative, especially for studies requiring hundreds of negative tests.
+\end{itemize}
+Process surrogates with the same pre-examination steps as patient samples. Prioritize maintaining matrix integrity (viscosity, ionic strength). Artificial matrixes may be considered when patient sample volume is very low (e.g., swab samples).
+
+\begin{table}[h!]
+\centering
+\caption{Carryover Study Hierarchy \cite{CLSIEP39Ed1E}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{5cm} >{\raggedright\arraybackslash}p{8cm}}
+\toprule
+\textbf{Carryover Sample} & \textbf{Sample Definition} \\
+\midrule
+\textcolor{darkgreen}{A1} & Patient sample (unspiked, individual) \\
+\textcolor{darkgreen}{A2} & Pooled (unspiked, pool) \\
+\textcolor{darkgreen}{B1} & Supplemented (biological spiked, individual) \\
+\textcolor{darkgreen}{B2} & Pooled (biological spiked, pool) \\
+\textcolor{orange}{E1} & Simulated analyte (artificial spiked, individual) \\
+\textcolor{orange}{E2} & Simulated analyte (artificial spiked, pool) \\
+\textcolor{red}{G} & Simulated matrix (unspiked, artificial) \\
+\textcolor{red}{H} & Simulated matrix (biological spiked, artificial) \\
+\textcolor{red}{I} & Simulated matrix (artificial spiked, artificial) \\
+\bottomrule
+\multicolumn{2}{p{13cm}}{* Hierarchy flows downwards. Colors indicate preference as per Table 5.}
+\end{tabular}
+\end{table}
+
+Special consideration is needed for samples with high biological variability (e.g., mucoidal samples, sputum, hemolyzed blood) that are hard to mimic.
+
+\textbf{Practical Example (Carryover Study):}
+You need to test for carryover on your automated analyzer for a quantitative assay. You need a very high positive sample followed by multiple negative samples. Patient samples with extremely high concentrations are rare.
+\begin{itemize}
+    \item **Method:** Obtain a large volume of pooled normal human serum (A2). Obtain a stock of purified analyte (Artificial Analyte).
+    \item **Preparation:** Spike the pooled normal serum (A2) with the purified analyte stock (E2) to create a "high-positive" sample with a concentration significantly above the ULMI (e.g., 10 times the ULMI). Use the pooled normal serum (A2) as the "negative" sample.
+    \item **Testing:** Run a sequence of samples on the automated analyzer, typically alternating between the high-positive sample and multiple replicates of the negative sample (e.g., H-N-N-N... sequence).
+    \item **Analysis:** Measure the analyte concentration in the negative samples run after the high-positive sample. If the concentration in these negative samples is above the LoB or a predefined threshold, carryover is occurring. The study quantifies the extent of carryover \cite{CLSIEP39Ed1E}.
+\end{itemize}
+
+\subsection{Reagent Stability}
+
+\subsubsection{Objective}
+To determine if test reagents maintain their performance characteristics within acceptable limits over their established shelf-life and in-use period \cite{CLSIEP25}.
+
+\subsubsection{Principles for Surrogate Sample Use}
+Surrogate samples are used to provide stable, reproducible samples with appropriate analyte concentrations for testing reagents over long periods. They supplement, not replace, patient samples.
+
+\subsubsection{When to Use}
+When individual patient samples lack the volume or stability needed for long-term testing. Surrogate samples increase volume, ensure reproducibility, and reduce sample-related variation.
+
+\subsubsection{How to Use}
+Surrogate samples should cover concentrations not well-represented by patient samples (e.g., below the biological reference interval). If patient samples are unstable, surrogates ensure stability shifts are due to the reagent. Test patient and surrogate samples together if possible.
+\begin{itemize}
+    \item **Suitable Types:** Patient sample pools (A2), controls, and other stable materials of known stability (Table 17).
+    \item **Concentrations:** For quantitative tests, use neat, diluted, or spiked samples at MDLs, LLMI, ULMI, or across the AMI. For qualitative tests, use samples at the MDL or cutoff.
+    \item **Decision Guidance (Not a strict hierarchy):**
+    \begin{itemize}
+        \item Evaluate surrogate performance in other studies to support their use in stability.
+        \item Plan should describe surrogate type and desired stability.
+        \item Account for potential changes in analyte recognition over time.
+        \item Include patient samples comparable to surrogates or at MDLs.
+        \item Include concentrations best for monitoring performance (near LLoD, ULMI, MDL, sensitive signal range).
+        \item If analyte is stable, pool patient samples to reach target concentrations.
+        \item If matrix is labile, spike samples to reach target concentrations.
+        \item Commercial calibrators/controls can supplement but not replace other surrogates, unless using patient-based surrogates is not feasible (justify this).
+        \item If analyte is unstable, use biosimilar materials.
+        \item Sample extract might be more stable than sample-like material.
+        \item Store surrogates stably (e.g., $-70^\circ$C).
+        \item Requalify surrogates or prepare new ones for very long shelf-life studies ($>$2 years).
+    \end{itemize}
+\end{itemize}
+
+\begin{table}[h!]
+\centering
+\caption{Reagent Stability Study Hierarchy \cite{CLSIEP39Ed1E}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{5cm} >{\raggedright\arraybackslash}p{8cm}}
+\toprule
+\textbf{Reagent Stability Sample} & \textbf{Sample Definition} \\
+\midrule
+\textcolor{darkgreen}{A1} & Patient sample (unspiked, individual) \\
+\textcolor{darkgreen}{A2} & Pooled (unspiked, pool) \\
+\textcolor{darkgreen}{B1} & Supplemented (biological spiked, individual) \\
+\textcolor{darkgreen}{B2} & Pooled (biological spiked, pool) \\
+\textcolor{orange}{E1} & Simulated analyte (artificial spiked, individual) \\
+\textcolor{orange}{E2} & Simulated analyte (artificial spiked, pool) \\
+\textcolor{red}{G} & Simulated matrix (unspiked, artificial) \\
+\textcolor{red}{H} & Simulated matrix (biological spiked, artificial) \\
+\textcolor{red}{I} & Simulated matrix (artificial spiked, artificial) \\
+\bottomrule
+\multicolumn{2}{p{13cm}}{* Hierarchy flows downwards. Colors indicate preference as per Table 5.}
+\end{tabular}
+\end{table}
+
+\textbf{Practical Example (Reagent Stability):}
+You need to perform a 1-year shelf-life study for a new quantitative reagent kit. You need stable samples at low, medium, and high concentrations to test the reagent performance over time. Patient samples are not stable for 1 year at typical storage conditions.
+\begin{itemize}
+    \item **Method:** Use commercially available, lyophilized control materials (often based on pooled human serum, A2/B2/E2 depending on composition) with assigned values at low, medium, and high concentrations. These materials are designed for long-term stability.
+    \item **Preparation:** Reconstitute aliquots of the control materials according to the manufacturer's instructions at the start of the study and at planned intervals (e.g., 0, 3, 6, 9, 12 months). Store the reagent kits according to their recommended conditions.
+    \item **Testing:** At each time point, test the reconstituted control materials using a fresh aliquot of the reagent kit.
+    \item **Analysis:** Compare the measured values of the control materials at each time point to their assigned values or to the results obtained at the start of the study. If the results remain within predefined acceptance criteria (e.g., $\pm$ acceptable bias or within-lot precision limits), the reagent is stable for that duration. Supplement this with testing of any available stable patient samples if possible. Justify the exclusive use of controls if patient samples are not feasible \cite{CLSIEP25}.
+\end{itemize}
+
+\section{Conclusion}
+
+This guideline, EP39, introduces a standard definition for "surrogate sample" and a structured approach for deciding when and how to use them. Adopting this terminology and approach is expected to improve communication and study design in laboratory science.
+
+The guideline discusses the potential limitations of using surrogate samples and provides ways to manage these limitations through careful sample preparation and study design. Surrogate samples are crucial because obtaining sufficient patient samples can be difficult due to factors like sample rarity, low disease prevalence, small sample volumes, or limited availability at specific concentrations.
+
+By providing a clear framework and recommendations, this guideline simplifies the process of working with surrogate samples and helps advance scientific developments in laboratory testing \cite{CLSIEP39Ed1E}.
+
+\bibliography{references}
+\bibentry{CLSIEP39Ed1E}
+\bibentry{CLSIEP06}
+\bibentry{CLSIEP17}
+
+\end{document}
+```
